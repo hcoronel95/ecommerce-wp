@@ -1,0 +1,20 @@
+/* Mercadito Panel Rápido · barra y botones del encargado en la tienda */
+body.mc-con-barra{padding-bottom:88px}
+.mc-barra{position:fixed;left:50%;bottom:20px;z-index:99990;display:flex;align-items:center;gap:6px;padding:8px;border-radius:999px;background:#2B2118;color:#fff;box-shadow:0 12px 34px rgba(43,33,24,.35);transform:translateX(-50%);font-family:inherit;font-size:14px;line-height:1.2;max-width:calc(100vw - 24px)}
+.mc-barra .mc-svg{width:18px;height:18px;flex:none}
+.mc-barra-titulo{display:inline-flex;align-items:center;gap:8px;padding:0 12px 0 10px;color:#F3D3AB;font-weight:800;white-space:nowrap}
+.mc-barra a{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:999px;color:#fff;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s}
+.mc-barra a:hover,.mc-barra a:focus-visible{background:rgba(255,255,255,.12);color:#fff}
+.mc-barra a.mc-barra-principal{background:var(--mc-v)}
+.mc-barra a.mc-barra-principal:hover,.mc-barra a.mc-barra-principal:focus-visible{background:var(--mc-g2)}
+.wc-block-components-product-image .mc-editar{position:absolute;top:10px;right:10px;z-index:5;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--mc-v);font-size:13px;font-weight:800;line-height:1.2;text-decoration:none;box-shadow:0 4px 14px rgba(43,33,24,.18);opacity:0;transform:translateY(-4px);transition:opacity .15s,transform .15s}
+.wc-block-components-product-image .mc-editar .mc-svg{width:14px;height:14px}
+.wc-block-components-product-image:hover .mc-editar,.wc-block-components-product-image .mc-editar:focus-visible{opacity:1;transform:none}
+.wc-block-components-product-image .mc-editar:hover{background:var(--mc-v);color:#fff}
+@media (hover:none){.wc-block-components-product-image .mc-editar{opacity:1;transform:none}}
+@media (max-width:600px){
+body.mc-con-barra{padding-bottom:84px}
+.mc-barra{left:12px;right:12px;bottom:12px;justify-content:space-between;transform:none;border-radius:18px}
+.mc-barra-titulo{display:none}
+.mc-barra a{flex:1;justify-content:center;padding:11px 8px;border-radius:12px;font-size:13px}
+}

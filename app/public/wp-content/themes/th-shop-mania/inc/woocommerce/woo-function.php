@@ -1,0 +1,727 @@
+<?php
+// If plugin - 'WooCommerce' not exist then return.
+if (!class_exists('WooCommerce')) {
+  return;
+}
+if (!function_exists('th_shop_mania_whishlist_url')) {
+  function th_shop_mania_whishlist_url($argu = '')
+  {
+    $wishlist_page_id = '';
+        if (class_exists( 'THWL_Wishlist' )) {
+          $wishlist_page_id =  get_option( 'thwl_page_id' );
+        }
+        elseif( class_exists( 'YITH_WCWL' ) ){
+          $wishlist_page_id =  get_option( 'yith_wcwl_wishlist_page_id' );
+        }
+    $wishlist_permalink = get_the_permalink($wishlist_page_id);
+    return $wishlist_permalink;
+  }
+  add_filter('th_shop_mania_whishlist_url', 'th_shop_mania_whishlist_url');
+}
+// display admin name
+if (!function_exists('th_shop_mania_display_admin_name')) {
+  function th_shop_mania_display_admin_name()
+  {
+    $user = wp_get_current_user();
+    echo esc_html($user->display_name);
+  }
+}
+/*******************************/
+/** Sidebar Add Cart Product **/
+/*******************************/
+if (!function_exists('th_shop_mania_cart_total_item')) {
+  /**
+   * Cart Link
+   * Displayed a link to the cart including the number of items present and the cart total
+   */
+  function th_shop_mania_cart_total_item()
+  {
+    $th_shop_mania_enable_cart = esc_html(get_theme_mod('th_shop_mania_enable_cart',true));
+if ($th_shop_mania_enable_cart && shortcode_exists('taiowc')) {
+    $shortcode = 'taiowc';
+} elseif ( $th_shop_mania_enable_cart && shortcode_exists('taiowcp')) {
+    $shortcode = 'taiowcp';
+} else {
+    return;
+}
+?>
+<div class="cart-contents">
+    <?php echo do_shortcode("[$shortcode]"); ?>
+</div>
+ <?php }
+  add_action('th_shop_mania_cart_total_item', 'th_shop_mania_cart_total_item');
+}
+/** My Account Menu **/
+if (!function_exists('th_shop_mania_account')) {
+  function th_shop_mania_account( $type = '')
+  { 
+    $th_shop_mania_enable_account = esc_html(get_theme_mod('th_shop_mania_enable_account',true));
+    if ($type == 'bottom-sticky' || $th_shop_mania_enable_account) {
+    ?>
+    <a class="account" href="<?php echo esc_url(get_permalink(get_option('woocommerce_myaccount_page_id'))); ?>" aria-label="account"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </a>
+
+        <?php  if( shortcode_exists( 'thsmw-popup' ) ){
+              do_shortcode("[thsmw-popup popup='Popup-2']");
+          } ?>
+  <?php } 
+}
+  add_action('th_shop_mania_account', 'th_shop_mania_account');
+}
+/***************/
+// single page
+/***************/
+if (!function_exists('th_shop_mania_single_summary_start')) {
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_single_summary_start()
+  {
+
+    echo '<div class="thunk-single-product-summary-wrap single">';
+  }
+}
+if (!function_exists('th_shop_mania_single_summary_end')) {
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_single_summary_end()
+  {
+    echo '</div>';
+  }
+}
+add_action('woocommerce_before_single_product_summary', 'th_shop_mania_single_summary_start', 0);
+add_action('woocommerce_after_single_product_summary', 'th_shop_mania_single_summary_end', 0);
+//Below lines are to show meta tab right side of product image
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs',40 );
+// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+// add_filter( 'woocommerce_product_tabs', 'th_shop_mania_woocommerce_custom_product_tabs', 40 );
+function th_shop_mania_woocommerce_custom_product_tabs($tabs)
+{
+  $tabs['delivery_information'] = array(
+    'title'     => __('Meta Information', 'th-shop-mania'),
+    'priority'  => 10,
+    'callback'  => 'woocommerce_product_meta_tab'
+  );
+  return $tabs;
+}
+function woocommerce_product_meta_tab()
+{ // this is where you indicate what appears in the description tab
+  wc_get_template('single-product/meta.php'); // The meta content first
+}
+/**
+ * Add next/prev buttons @ WooCommerce Single Product Page
+ */
+// add_action('woocommerce_before_single_product_summary', 'th_shop_mania_prev_next_product', 0);
+
+// and if you also want them at the bottom...
+// add_action( 'woocommerce_single_product_summary', 'th_shop_mania_prev_next_product',0 );
+
+function th_shop_mania_prev_next_product()
+{
+  echo '<div class="prev_next_buttons">';
+  // 'product_cat' will make sure to return next/prev from current category
+  $previous = next_post_link('%link', '&larr;', false, ' ', 'product_cat');
+  $next = previous_post_link('%link', '&rarr;', false, ' ', 'product_cat');
+
+  // echo $previous;
+  // echo $next;
+
+          if ($previous) {
+            echo wp_kses_post( $previous ); // Escape and allow safe HTML
+        }
+
+        if ($next) {
+            echo wp_kses_post( $next ); // Escape and allow safe HTML
+        }
+
+  echo '</div>';
+}
+// Plus Minus Quantity Buttons @ WooCommerce Single Product Page
+add_action('woocommerce_before_add_to_cart_quantity', 'th_shop_mania_display_quantity_minus', 10, 2);
+function th_shop_mania_display_quantity_minus()
+{
+   global $product;
+    // Get the product ID
+    $product_id = $product->get_id();
+    // Check if stock management is enabled
+    $manage_stock      = get_post_meta( $product_id, '_manage_stock', true );
+    $sold_individually = get_post_meta( $product_id, '_sold_individually', true );
+    // Check if the product has stock management and the quantity is greater than 1
+    if($sold_individually === 'no'){
+    if ( ( $manage_stock === 'no' ) || ( $manage_stock === 'yes' && $product->get_stock_quantity() > 1 )) {?>
+    <div class="th-shop-mania-quantity"><button type="button" class="minus" >-</button>
+<?php }}
+}
+add_action('woocommerce_after_add_to_cart_quantity', 'th_shop_mania_display_quantity_plus', 10, 2);
+function th_shop_mania_display_quantity_plus()
+{
+ global $product;
+  // Get the product ID
+  $product_id = $product->get_id();
+  // Check if stock management is enabled
+  $manage_stock = get_post_meta( $product_id, '_manage_stock', true );
+  $sold_individually = get_post_meta( $product_id, '_sold_individually', true );
+  // Check if the product has stock management and the quantity is greater than 1
+  if($sold_individually === 'no'){
+  if ( ( $manage_stock === 'no' ) || ( $manage_stock === 'yes' && $product->get_stock_quantity() > 1 )) {?>
+  <button type="button" class="plus" >+</button></div>
+<?php }}
+}
+//Woocommerce: How to remove page-title at the home/shop page archive & category pages
+add_filter('woocommerce_show_page_title', '__return_null');
+
+function th_shop_mania_not_a_shop_page()
+{
+  return boolval(!is_shop());
+}
+//***********************/
+// product category list
+//************************/
+if ( ! function_exists( 'th_shop_mania_product_list_categories' ) ) {
+
+    function th_shop_mania_product_list_categories( $args = '' ) {
+
+        /**
+         * STEP 1: Fetch customizer value safely
+         */
+        $raw_terms = get_theme_mod( 'th_shop_mania_exclde_category', array() );
+
+        /**
+         * STEP 2: Normalize value into an array of integers
+         */
+        $include_ids = array();
+
+        if ( is_array( $raw_terms ) ) {
+
+            $include_ids = $raw_terms;
+
+        } elseif ( is_string( $raw_terms ) && $raw_terms !== '' ) {
+
+            // Handle comma-separated or single values
+            $include_ids = explode( ',', $raw_terms );
+
+        } elseif ( is_numeric( $raw_terms ) ) {
+
+            // Single numeric value
+            $include_ids = array( $raw_terms );
+
+        }
+
+        /**
+         * STEP 3: Sanitize & clean values
+         */
+        $include_ids = array_filter(
+            array_map( 'absint', $include_ids )
+        );
+
+        /**
+         * STEP 4: Prepare wp_list_categories args
+         */
+        $defaults = array(
+            'include'              => ! empty( $include_ids ) ? $include_ids : '',
+            'child_of'             => 0,
+            'current_category'     => 0,
+            'depth'                => 5,
+            'echo'                 => 0,
+            'hide_empty'           => 1,
+            'hide_title_if_empty'  => false,
+            'hierarchical'         => true,
+            'order'                => 'ASC',
+            'orderby'              => 'menu_order',
+            'separator'            => '<br />',
+            'show_count'           => 0,
+            'show_option_all'      => '',
+            'show_option_none'     => esc_html__( 'No categories', 'th-shop-mania' ),
+            'style'                => 'list',
+            'taxonomy'             => 'product_cat',
+            'title_li'             => '',
+            'use_desc_for_title'   => 0,
+        );
+
+        /**
+         * STEP 5: Generate category list safely
+         */
+        $html = wp_list_categories( $defaults );
+
+        if ( ! empty( $html ) && is_string( $html ) ) {
+            echo '<ul class="product-cat-list thunk-product-cat-list" data-menu-style="vertical">';
+            echo wp_kses_post( $html );
+            echo '</ul>';
+        }
+    }
+}
+
+if (!function_exists('th_shop_mania_product_categories_exist')) {
+  function th_shop_mania_product_categories_exist(){
+    $args = array(
+                    'taxonomy'   => 'product_cat',
+                    'hide_empty' => true, // Set to true to exclude categories without products
+                );
+
+    $categories = get_terms($args);
+    
+    if (!is_wp_error($categories) && !empty($categories)) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+}
+if (!function_exists('th_shop_mania_product_list_categories_mobile')) {
+  function th_shop_mania_product_list_categories_mobile($args = '')
+  {
+      /**
+         * STEP 1: Fetch customizer value safely
+         */
+        $raw_terms = get_theme_mod( 'th_shop_mania_exclde_category', array() );
+
+        /**
+         * STEP 2: Normalize value into an array of integers
+         */
+        $include_ids = array();
+
+        if ( is_array( $raw_terms ) ) {
+
+            $include_ids = $raw_terms;
+
+        } elseif ( is_string( $raw_terms ) && $raw_terms !== '' ) {
+
+            // Handle comma-separated or single values
+            $include_ids = explode( ',', $raw_terms );
+
+        } elseif ( is_numeric( $raw_terms ) ) {
+
+            // Single numeric value
+            $include_ids = array( $raw_terms );
+
+        }
+
+        /**
+         * STEP 3: Sanitize & clean values
+         */
+        $include_ids = array_filter(
+            array_map( 'absint', $include_ids )
+        );
+
+        /**
+         * STEP 4: Prepare wp_list_categories args
+         */
+        $defaults = array(
+            'include'              => ! empty( $include_ids ) ? $include_ids : '',
+            'child_of'             => 0,
+            'current_category'     => 0,
+            'depth'                => 5,
+            'echo'                 => 0,
+            'hide_empty'           => 1,
+            'hide_title_if_empty'  => false,
+            'hierarchical'         => true,
+            'order'                => 'ASC',
+            'orderby'              => 'menu_order',
+            'separator'            => '<br />',
+            'show_count'           => 0,
+            'show_option_all'      => '',
+            'show_option_none'     => esc_html__( 'No categories', 'th-shop-mania' ),
+            'style'                => 'list',
+            'taxonomy'             => 'product_cat',
+            'title_li'             => '',
+            'use_desc_for_title'   => 0,
+        );
+    $html = wp_list_categories($defaults);
+    echo '<ul class="mob-product-cat-list thunk-product-cat-list mobile" data-menu-style="accordion">' .wp_kses_post($html). '</ul>';
+  }
+}
+/**********************************/
+//Shop Product Markup
+/**********************************/
+if (!function_exists('th_shop_mania_pro_product_meta_start')) {
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_product_meta_start()
+  {
+    echo '<div class="thunk-product-wrap"><div class="thunk-product">';
+  }
+}
+if (!function_exists('th_shop_mania_pro_product_meta_end')) {
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_product_meta_end()
+  {
+
+    echo '</div></div>';
+  }
+}
+/**********************************/
+//Shop Product Image Markup
+/**********************************/
+if (!function_exists('th_shop_mania_pro_product_image_start')) {
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_product_image_start()
+  {
+    echo '<div class="thunk-product-image">';
+  }
+}
+if (!function_exists('th_shop_mania_pro_product_image_end')) {
+
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_product_image_end()
+  {
+    do_action('quickview');
+    echo '</div>';
+  }
+}
+if (!function_exists('th_shop_mania_pro_product_content_start')) {
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_product_content_start()
+  {
+    echo '<div class="thunk-product-content">';
+  }
+}
+if (!function_exists('th_shop_mania_pro_product_content_end')) {
+
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_product_content_end()
+  {
+
+    echo '</div>';
+  }
+}
+/**
+ * Thunk-product-hover start.
+ */
+if (!function_exists('th_shop_mania_pro_product_hover_start')) {
+  function th_shop_mania_pro_product_hover_start()
+  {
+    global $product;
+    $pid = $product->get_id();
+
+    echo '<div class="thunk-product-hover">';
+    th_shop_mania_add_to_cart();
+    th_shop_mania_whish_list($pid);
+    th_shop_mania_add_to_compare_fltr($pid);
+  }
+}
+if (!function_exists('th_shop_mania_pro_product_hover_end')) {
+
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_product_hover_end()
+  {
+
+    echo '</div>';
+  }
+}
+
+if (!function_exists('th_shop_mania_pro_shop_content_start')) {
+
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_shop_content_start()
+  {
+    $viewshow = get_theme_mod('th_shop_mania_prd_view', 'grid-view');
+    if ($viewshow == 'grid-view') {
+      echo '<div id="shop-product-wrap" class="thunk-grid-view">';
+    } else {
+      echo '<div id="shop-product-wrap" class="thunk-list-view">';
+    }
+  }
+}
+if (!function_exists('th_shop_mania_pro_shop_content_end')) {
+
+  /**
+   * Thumbnail wrap start.
+   */
+  function th_shop_mania_pro_shop_content_end()
+  {
+
+    echo '</div>';
+  }
+}
+/**
+ * add to cart start.
+ */
+if (!function_exists('th_shop_mania_add_to_cart')) {
+  function th_shop_mania_add_to_cart($layout = '')
+  {
+    if ($layout == 'tooltip') {
+      echo '<div class="th-add-to-cart"><div th-tooltip="' . esc_attr__('Add To Cart', 'th-shop-mania') . '">';
+      woocommerce_template_loop_add_to_cart();
+      echo '</div></div>';
+    } else {
+      echo '<div class="th-add-to-cart">';
+      woocommerce_template_loop_add_to_cart();
+      echo '</div>';
+    }
+  }
+}
+/****************/
+// add to compare
+/****************/
+if (!function_exists('th_shop_mania_add_to_compare_fltr')) {
+  function th_shop_mania_add_to_compare_fltr($pid = '')
+  {
+    $th_shop_mania_woo_product_layout = esc_attr(get_theme_mod('th_shop_mania_woo_product_layout',1)); 
+
+    if ( $th_shop_mania_woo_product_layout == 1 && shortcode_exists('th_compare')) {
+      echo do_shortcode('[th_compare pid="' . esc_attr($pid) . '"]');
+    }
+    elseif (class_exists('th_product_compare') || class_exists('Tpcp_product_compare')) {
+      echo '<div class="thunk-compare"><div th-tooltip="' . __('Compare', 'th-shop-mania') . '" class="compare-tooltip"><a class="th-product-compare-btn compare button" data-th-product-id="' . esc_attr($pid) . '"><span class="th-icon th-icon-repeat"></span><span class="text">' . __('Compare', 'th-shop-mania') . '</span></a></div></div>';
+    }
+
+  }
+}
+/**********************/
+/** wishlist **/
+/**********************/
+if (!function_exists('th_shop_mania_whish_list')) {
+  function th_shop_mania_whish_list($pid = '')
+  {
+      if (shortcode_exists('thwl_add_to_wishlist')) {
+          // Define the icon HTML using sprintf
+          $icon_html = sprintf('<span class="%s"></span>', 'th-icon th-icon-heart1'); // Corrected class name
+
+          // Directly insert the icon HTML inside the add_icon parameter
+          echo '<div class="thunk-wishlist">
+              <span class="thunk-wishlist-inner">
+                  <div th-tooltip="' . esc_attr__('Wishlist', 'th-shop-mania') . '" class="wishlist-tooltip">' . 
+                  do_shortcode('[thwl_add_to_wishlist 
+                      product_id="' . esc_attr($pid) . '" 
+                      add_icon="" 
+                      add_text="' . esc_attr__('Wishlist', 'th-shop-mania') . '" 
+                      add_browse_icon=""
+                      browse_text="' . esc_attr__('Added', 'th-shop-mania') . '"
+                      theme_style="yes"
+                      custom_class="th-wishlist-integrated"
+                    ]') . 
+                  '</div>
+              </span>
+          </div>';
+      }
+      elseif (shortcode_exists('yith_wcwl_add_to_wishlist')) {
+      echo '<div class="thunk-wishlist"><span class="thunk-wishlist-inner"><div th-tooltip="' . esc_attr__('Wishlist', 'th-shop-mania') . '" class="wishlist-tooltip">' . do_shortcode('[yith_wcwl_add_to_wishlist product_id=' . esc_attr($pid) . ' icon="th-icon th-icon-heart1" label=' . esc_attr__('wishlist', 'th-shop-mania') . ' already_in_wishslist_text=' . esc_attr__('Already', 'th-shop-mania') . ' browse_wishlist_text=' . esc_attr__('Added', 'th-shop-mania') . ']') . '</div></span></div>';
+    }
+
+
+
+  }
+}
+// * Shop customization.
+// * @return void
+add_action('woocommerce_before_shop_loop', 'th_shop_mania_pro_shop_content_start', 1);
+add_action('woocommerce_after_shop_loop', 'th_shop_mania_pro_shop_content_end', 1);
+
+//To disable th compare button 
+remove_action('woocommerce_init', 'th_compare_add_action_shop_list');
+
+//To disable th compare Pro button 
+remove_action('woocommerce_init', 'tpcp_add_action_shop_list');
+
+// To disable Wishlist button for loop button at shop page
+remove_action( 'wp', 'thwl_hook_wishlist_loop_button_position');
+
+// To disable Wishlist button for loop button at single page
+// remove_action( 'wp', 'thwl_hook_wishlist_single_button_position');
+
+// Woocommerce Cart Page Customisation
+remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
+
+// Sale Badge Text change
+add_filter('woocommerce_sale_flash', 'woocommerce_custom_sale_text', 10, 3);
+function woocommerce_custom_sale_text($text, $post, $_product)
+{
+  if (function_exists('th_shop_mania_pro_load_plugin')) {
+    $sale = get_theme_mod('th_shop_mania_woo_sale_text', 'Sale');
+  } else{
+    $sale = 'Sale';
+  }
+  return '<span class="onsale">' . esc_html($sale) . '</span>';
+}
+// This Action for product style in shop page
+add_action('wp', 'th_shop_mania_shop_customization', 5);
+
+// This Action for product style in shop page with ajax
+add_action('th_shop_mania_pagination_infinite', 'th_shop_mania_shop_customization');
+/**
+ * Shop customization.
+ *
+ * @return void
+ */
+function th_shop_mania_shop_customization()
+{
+  remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
+  remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10, 0);
+  remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+  remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+  remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+  remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
+  remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+  /**
+   * Shop Page Product Content Sorting
+   */
+  add_action('woocommerce_after_shop_loop_item', 'th_shop_mania_woo_woocommerce_shop_product_content', 10);
+  // // ========================+++prev+++========================
+}
+if (!function_exists('th_shop_mania_woo_shop_product_price')) {
+  function th_shop_mania_woo_shop_product_price($product)
+  {
+    $price_html = $product->get_price_html();
+    echo $price_html ? '<span class="price">' .wp_kses_post($price_html). '</span>' : '';
+  }
+}
+if (!function_exists('th_shop_mania_woo_shop_product_on_sale')) {
+  function th_shop_mania_woo_shop_product_on_sale()
+  {
+    global $post, $product;
+    return $product->is_on_sale() ?  apply_filters('woocommerce_sale_flash', '<span class="onsale">' . esc_html__('Sale!', 'th-shop-mania') . '</span>', $post, $product) : '';
+  }
+}
+if (!function_exists('th_shop_mania_woo_shop_product_rating')) {
+  function th_shop_mania_woo_shop_product_rating($product)
+  {
+    return wc_review_ratings_enabled() ? wc_get_rating_html($product->get_average_rating()) : '';
+  }
+}
+if (!function_exists('th_shop_mania_woo_woocommerce_template_loop_product_title')) {
+  /**
+   * Show the product title in the product loop. By default this is an H2.
+   */
+  function th_shop_mania_woo_woocommerce_template_loop_product_title()
+  { ?>
+    <a href="<?php echo esc_url(get_the_permalink()); ?>" class="zta-loop-product__link"><h2 class="woocommerce-loop-product__title"><?php echo esc_html(get_the_title()); ?></h2></a>
+<?php  }
+}
+if (!function_exists('th_shop_mania_woo_woocommerce_shop_product_content')) {
+  /**
+   * Show the product title in the product loop. By default this is an H2.
+   */
+  function th_shop_mania_woo_woocommerce_shop_product_content()
+  {
+    $shop_th_shop_mania_woo_product_layout = get_theme_mod('th_shop_mania_woo_product_layout', 1);
+    $shop_th_shop_mania_woo_product_layout = $shop_th_shop_mania_woo_product_layout ? $shop_th_shop_mania_woo_product_layout : 1;
+    global $product;
+    $productId = $product->get_id();
+    if ($shop_th_shop_mania_woo_product_layout == 1) {
+      th_shop_mania_woocommerce_product_layout_default($product, $productId);
+    } elseif ($shop_th_shop_mania_woo_product_layout == 2 && function_exists('th_shop_mania_woocommerce_product_layout2')) {
+      th_shop_mania_woocommerce_product_layout2($product, $productId);
+    } elseif ($shop_th_shop_mania_woo_product_layout == 3 && function_exists('th_shop_mania_woocommerce_product_layout3')) {
+      th_shop_mania_woocommerce_product_layout3($product, $productId);
+    } elseif ($shop_th_shop_mania_woo_product_layout == 4 && function_exists('th_shop_mania_woocommerce_product_layout4')) {
+      th_shop_mania_woocommerce_product_layout4($product, $productId);
+    } elseif ($shop_th_shop_mania_woo_product_layout == 5 && function_exists('th_shop_mania_woocommerce_product_layout5')) {
+      th_shop_mania_woocommerce_product_layout5($product, $productId);
+    } elseif ($shop_th_shop_mania_woo_product_layout == 6 && function_exists('th_shop_mania_woocommerce_product_layout6')) {
+          th_shop_mania_woocommerce_product_layout6($product, $productId);        
+    } else{
+      th_shop_mania_woocommerce_product_layout_default($product, $productId);
+    }
+  }
+}
+//woocommerce layouts--------------------------------------------
+//woocommerce layout 1------------
+function th_shop_mania_woocommerce_product_layout_default($product, $productId)
+{
+  ?>
+  <div class="th-shop-mania-shop-page-layout-default" id="shop-page-products-layouts">
+    <div class="thunk-product-wrap">
+      <div class="thunk-product">
+        <a href=" <?php echo esc_url(get_the_permalink()) . ' ' ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+          <div class="thunk-product-image">
+            <?php echo wp_kses(th_shop_mania_woo_shop_product_on_sale(),th_shop_mania_wp_kses_allowed_html()
+          );
+            echo wp_kses_post(woocommerce_get_product_thumbnail());
+            $hover_style = get_theme_mod('th_shop_mania_woo_product_animation');
+            // the_post_thumbnail();
+            if ('swap' === $hover_style) {
+              $attachment_ids = $product->get_gallery_image_ids($productId);
+              if (!empty($attachment_ids)) {
+
+                $glr = wp_get_attachment_image($attachment_ids[0], 'shop_catalog', false, array('class' => 'show-on-hover'));
+                $category_product['glr'] = $glr;
+                echo wp_kses_post($category_product['glr']);
+              }
+            }
+            if ('slide' === $hover_style) {
+              $attachment_ids = $product->get_gallery_image_ids($productId);
+              if (!empty($attachment_ids)) {
+
+                $glr = wp_get_attachment_image($attachment_ids[0], 'shop_catalog', false, array('class' => 'show-on-slide'));
+                $category_product['glr'] = $glr;
+                echo wp_kses_post($category_product['glr']);
+              }
+            }
+            do_action('quickview');
+            ?>
+          </div>
+          <div class="thunk-product-content"> 
+          <?php if (class_exists('TH_Variation_Swatches_Pro')) {
+              thvs_loop_available_attributes($product);
+            }?>
+              <?php th_shop_mania_woo_woocommerce_template_loop_product_title(); ?>
+            <?php th_shop_mania_woo_shop_product_price($product);
+            echo wp_kses_post(th_shop_mania_woo_shop_product_rating($product)); 
+
+            if (get_theme_mod('open_shop_sale_countdown_shop_enable',true)==true && shortcode_exists( 'show_thwcd_product' )) {
+              echo do_shortcode('[show_thwcd_product]');
+            }
+            
+            ?>
+          </div>
+        </a>
+        <div class="thunk-product-hover">
+          <?php th_shop_mania_add_to_cart('layout1');
+          th_shop_mania_whish_list($productId);
+          th_shop_mania_add_to_compare_fltr($productId); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php }
+
+/************************/
+// description Menu
+/************************/
+if ( !function_exists('th_shop_mania_nav_description') ) {
+function th_shop_mania_nav_description( $item_output, $item, $depth, $args ){
+    if ( !empty( $item->description ) ) {
+        $item_output = str_replace( $args->link_after . '</a>', '<p class="menu-item-description">' . esc_html($item->description) . '</p>' . $args->link_after . '</a>', $item_output );
+    }
+ 
+    return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'th_shop_mania_nav_description', 10, 4 );
+}
+
+function th_shop_mania_wrap_woocommerce_ordering() {
+  ?>
+  <div class="th-sort-order-wrapper">
+    <?php woocommerce_result_count(); ?>
+    <div class="right"> 
+    <?php woocommerce_catalog_ordering(); ?>
+      <span class="th-sort-by-label"><?php esc_html_e('Sort by:', 'th-shop-mania'); ?></span>
+    </div>
+  </div>
+  <?php
+}
+// Remove default ordering and re-add it inside our wrapper
+remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+add_action('woocommerce_before_shop_loop', 'th_shop_mania_wrap_woocommerce_ordering', 18);
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+// Remove Category Word as prefix
+add_filter('get_the_archive_title_prefix','__return_empty_string');

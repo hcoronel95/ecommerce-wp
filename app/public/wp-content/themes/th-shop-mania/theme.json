@@ -1,0 +1,144 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"layout": {
+			"contentSize": "900px",
+			"wideSize": "1350px"
+		},
+		"spacing": {
+			"units": [
+				"%",
+				"px",
+				"em",
+				"rem",
+				"vh",
+				"vw"
+			],
+			"blockGap": true,
+      		"margin": true,
+      		"padding": true
+		},
+		"typography": {
+			"customFontSize": true,
+			"customLineHeight": true,
+      		"dropCap": true,
+			"fontSizes": [
+				{
+					"name": "Tiny",
+					"size": "0.813rem",
+					"slug": "tiny"
+				},
+				{
+					"name": "Extra Small",
+					"size": "0.875rem",
+					"slug": "extra-small"
+				},
+				{
+					"name": "Small",
+					"size": "0.938rem",
+					"slug": "small"
+				},
+				{
+					"name": "Medium",
+					"size": "1rem",
+					"slug": "medium"
+				},
+				{
+					"name": "Upper Heading",
+					"size": "1.125rem",
+					"slug": "upper-heading"
+				},
+				{
+					"name": "Normal",
+					"size": "clamp(1rem,1.6vw,1.25rem)",
+					"slug": "normal"
+				},
+				{
+					"name": "Content Heading",
+					"size": "clamp(1.25rem,4.2vw,1.5rem)",
+					"slug": "content-heading"
+				},
+				{
+					"name": "Large",
+					"size": "clamp(1.5rem,4.2vw,2rem)",
+					"slug": "large"
+				},
+				{
+					"name": "Extra large (Recent Post Title)",
+					"size": "clamp(1.75rem,6vw,2.813rem)",
+					"slug": "extra-large"
+				},
+				{
+					"name": "Huge (Display)",
+					"size": "clamp(2rem,5.2vw,3.438rem)",
+					"slug": "huge"
+				},
+				{
+					"name": "Extra Huge",
+					"size": "clamp(2.25rem,5.2vw,4.688rem)",
+					"slug": "extra-huge"
+				},
+				{
+					"name": "Extremely Large",
+					"size": "clamp(2.625rem,5.2vw,5.625rem)",
+					"slug": "largest"
+				}
+			]
+		},
+		"color": {
+			"gradients": [
+				{
+					"gradient": "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
+					"name": "MoonlitAsteroid secondary to tertiary",
+					"slug": "moonlitasteroid-secondary-to-tertiary"
+				},
+				{
+					"gradient": "linear-gradient(to right, #ff9966, #ff5e62)",
+					"name": "Orange Coral to background",
+					"slug": "orange-coral-to-background"
+				},
+				{
+					"gradient": "linear-gradient(to right, #0575e6, #021b79)",
+					"name": "VeryBlue to background",
+					"slug": "veryblue-tertiary-to-background"
+				},
+				{
+					"gradient": "linear-gradient(to right, #dbe6f6, #c5796d)",
+					"name": "Jaipur primary to heading",
+					"slug": "jaipur-primary-to-heading"
+				},
+				{
+					"gradient": "linear-gradient(to right, #283048, #859398)",
+					"name": "Titanium to background",
+					"slug": "titanium-secondary-to-background"
+				},
+				{
+					"gradient": "linear-gradient(to right, #0052d4, #4364f7, #6fb1fc)",
+					"name": "Bluelagoo background to secondary",
+					"slug": "bluelagoo-background-to-secondary"
+				},
+				{
+					"gradient": "linear-gradient(to right, #02aab0, #00cdac)",
+					"name": "Green Beach tertiary to background",
+					"slug": "greenbeach-to-background"
+				},
+				{
+					"gradient": "linear-gradient(to right, #1d976c, #93f9b9)",
+					"name": "Mojito background to tertiary",
+					"slug": "mojito-background-to-tertiary"
+				}
+			]
+		}
+	},
+  "styles": {
+	    "elements": {
+	      "link": {
+	          "typography": {
+	            "textDecoration": "none"
+	          }
+	      }
+	    }
+  }
+}

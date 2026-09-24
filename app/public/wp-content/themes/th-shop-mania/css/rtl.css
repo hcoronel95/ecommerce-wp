@@ -1,0 +1,78 @@
+/* General RTL adjustments */
+body {
+    direction: rtl; /* Set text direction */
+    text-align: right; /* Right-align text */
+}
+
+/* Adjust header layout for RTL */
+.header {
+    float: right;
+}
+
+/* Reposition the navigation menu for RTL */
+.nav-menu {
+    text-align: right;
+}
+
+.nav-menu li {
+    float: right; /* Flip menu items for RTL */
+}
+
+/* For images or other media that may need to be flipped */
+img, .img-fluid {
+    direction: rtl; /* Ensure images also respect the RTL layout */
+}
+
+/* Adjust footer layout */
+.footer {
+    text-align: right;
+}
+
+/* Reverse margins/paddings if needed */
+.sidebar {
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+.sidebar ul {
+    padding-right: 10px;
+    padding-left: 0;
+}
+
+/* Form inputs and buttons */
+input, textarea, select {
+    direction: rtl;
+}
+
+button, input[type="submit"], .button {
+    float: right; /* If buttons are floating in some parts */
+}
+
+/* Adjust alignment of blockquotes and quotes */
+blockquote {
+    text-align: right;
+}
+
+/* Adjusting for floating elements if needed */
+.float-left {
+    float: right !important;
+}
+
+.float-right {
+    float: left !important;
+}
+.rtl .main-header-col3 .cart-count-item, 
+.rtl .sticky-header .cart-count-item{
+    right: 12px;
+    top: -9px;
+    left: initial;
+}
+.rtl .sticky-header-col3 .thunk-icon .cart-icon a.cart-contents, 
+.rtl .sticky-header-col3 .header-icon a, .sticky-header a.prd-search{
+    padding-right: 0;
+    padding-left: 21px;
+}
+.rtl .taiowcp-content .taiowcp-total{
+    margin-left: 0;
+    margin-right: 9px;
+}

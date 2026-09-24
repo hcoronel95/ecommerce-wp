@@ -1,0 +1,61 @@
+/**
+ * Theme Name:     Mania eCommerce
+ * Author:         ThemeHunk
+ * Template:       th-shop-mania
+ * Text Domain:	   mania-ecommerce
+ * Description:    Mania eCommerce Theme is a modern, customizable WooCommerce theme for building fast, professional online stores. It offers responsive layouts, powerful customization options, Elementor compatibility, and WooCommerce features like wishlist, quick view, AJAX search, product filtering, promotional banners, and featured collections. Ideal for fashion, electronics, furniture, grocery, beauty, jewelry, and more, Mania is SEO-friendly, translation-ready, RTL-compatible, and designed to help create engaging stores that drive sales.
+ * Theme URI:      https://themehunk.com/mania-ecommerce/
+ * Author URI:     https://www.themehunk.com
+ * Version:        1.0.2
+ * Requires at least: 5.5
+ * Tested up to:   7.1
+ * Requires PHP:   5.6
+ * License:        GNU General Public License v3 or later
+ * License URI:    https://www.gnu.org/licenses/gpl-3.0.en.html
+ * Tags:           custom-logo, e-commerce, blog, grid-layout, entertainment
+ */
+
+body{
+    color: var(--body-text);
+    background: #FFF;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing:0.5px;
+    margin: 0;
+    padding: 0;
+    font-family:"Instrument Sans";font-weight: 400;
+    font-weight: inherit;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale; 
+    text-rendering: optimizeLegibility; 
+    -moz-font-feature-settings: "liga" on; 
+}
+.center-menu .th-shop-mania-menu{
+	text-align: left;
+}
+
+.woocommerce span.onsale, .woocommerce ul.products li.product .onsale {
+    padding: 5px 9px;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    min-width: initial;
+    min-height: initial;
+    line-height: initial;
+    top: 9px;
+    right: 9px;
+    margin: 0;
+    left: initial;
+    font-weight: 500;
+    z-index: 9;
+}
+
+.below-footer-col1{
+	text-align: left;
+}
+
+.thunk-product .th-add-to-cart a{
+	padding: 5px 9px;
+}

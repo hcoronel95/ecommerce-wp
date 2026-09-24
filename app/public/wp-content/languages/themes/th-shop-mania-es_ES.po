@@ -1,0 +1,1014 @@
+# Translation of Themes - Th Shop Mania in Spanish (Spain)
+# This file is distributed under the same license as the Themes - Th Shop Mania package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-06-20 18:55:40+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.1.0\n"
+"Language: es\n"
+"Project-Id-Version: Themes - Th Shop Mania\n"
+
+#. Theme Name of the theme
+#: style.css lib/notification/notify.php:108 lib/notification/notify.php:122
+#: lib/notification/notify.php:141
+#, gp-priority: high
+msgid "Th Shop Mania"
+msgstr "Th Shop Mania"
+
+#: lib/notification/notify.php:151
+msgid "Install"
+msgstr "Instalar"
+
+#: lib/notification/notify.php:110 lib/notification/notify.php:125
+#: lib/notification/notify.php:146 lib/notification/notify.php:148
+#: lib/notification/notify.php:151
+msgid "Go to Ready To Import website Templates "
+msgstr "Ir a «Plantillas de sitios web listas para importar» "
+
+#: lib/notification/notify.php:109 lib/notification/notify.php:123
+#: lib/notification/notify.php:142
+msgid "To take full advantage of all the features this theme has to offer, please install and activate the "
+msgstr "Si quieres aprovechar todas las ventajas de las características que este tema ofrece, por favor instala y activa el "
+
+#: lib/notification/notify.php:108 lib/notification/notify.php:122
+#: lib/notification/notify.php:141
+msgid "Thank you for installing %1$s - Version %2$s"
+msgstr "Gracias por instalar %1$s - Versión %2$s"
+
+#: lib/notification/customizer-notification/thsm-custom-section.php:64
+msgid "Thank You for installing Shop Mania Theme"
+msgstr "Gracias por instalar el tema Shop Mania"
+
+#: lib/notification/customizer-notification/thsm-custom-section.php:46
+msgid "Go to Starter Sites"
+msgstr "Ir a los sitios de inicio"
+
+#: lib/notification/customizer-notification/thsm-custom-section.php:39
+#: lib/notification/customizer-notification/thsm-custom-section.php:42
+msgid "To take full advantage of all the features this theme has to offer, please install and activate the Hunk Companion"
+msgstr "Si quieres aprovechar todas las ventajas de las características que este tema ofrece, por favor instala y activa Hunk Companion"
+
+#: lib/notification/customizer-notification/thsm-custom-section.php:33
+#: lib/notification/customizer-notification/thsm-custom-section.php:39
+#: lib/notification/notify.php:124 lib/notification/notify.php:148
+msgid "Activate"
+msgstr "Activar"
+
+#: lib/notification/customizer-notification/thsm-custom-section.php:33
+#: lib/th-option/sidebar.php:13
+msgid "To take full advantage of all the features this theme has to offer, please install and activate the TH Shop Mania Pro"
+msgstr "Si quieres aprovechar todas las ventajas de las características que este tema ofrece, por favor instala y activa TH Shop Mania"
+
+#: inc/footer-function.php:112
+msgid "ThemeHunk WordPress Theme"
+msgstr "Tema de WordPress ThemeHunk"
+
+#: functions.php:156
+msgid "Vayu Blocks – Gutenberg Blocks for WordPress & WooCommerce"
+msgstr "Vayu Blocks – Gutenberg Blocks for WordPress & WooCommerce"
+
+#: lib/page-meta-box/page-meta-box.php:224
+msgid "Disable Flexi Sidebar"
+msgstr "Desactiva la barra lateral «Flexi»"
+
+#: inc/starter-content/class-th-shop-mania-starter-content.php:127
+msgid "Contact"
+msgstr "Contacto"
+
+#: inc/starter-content/home.php:198
+msgctxt "Theme starter content"
+msgid "Home"
+msgstr "Inicio"
+
+#: inc/starter-content/class-th-shop-mania-starter-content.php:122
+msgid "Reviews"
+msgstr "Reseñas"
+
+#: inc/starter-content/class-th-shop-mania-starter-content.php:117
+msgid "Offers"
+msgstr "Ofertas"
+
+#: inc/starter-content/class-th-shop-mania-starter-content.php:112
+msgid "Shop"
+msgstr "Tienda"
+
+#: inc/starter-content/class-th-shop-mania-starter-content.php:107
+#: thnew-quick-view/thnew-quick-view.php:948
+msgid "Sale"
+msgstr "Oferta"
+
+#: inc/starter-content/class-th-shop-mania-starter-content.php:102
+msgid "Collections"
+msgstr "Colecciones"
+
+#: lib/th-option/tab-html.php:40
+msgid "White Label"
+msgstr "Marca blanca"
+
+#: lib/th-option/tab-html.php:39
+msgid "License"
+msgstr "Licencia"
+
+#: lib/th-option/tab-html.php:27
+msgid "Welcome To Shop Mania"
+msgstr "Bienvenido a Shop Mania"
+
+#: lib/th-option/need-help.php:39
+msgid " Click to Tweet"
+msgstr " Haz clic para tuitear"
+
+#: lib/th-option/need-help.php:34
+msgid "Love using this theme? Spread the word and let the world know you’ve crafted an awesome website for your store! Share your experience and showcase your stunning online presence to inspire others."
+msgstr "¿Te gusta este tema? ¡Corre la voz y haz que el mundo sepa que has creado un sitio web impresionante para tu tienda! Comparte tu experiencia y muestra tu estupenda presencia online para inspirar a otros."
+
+#: lib/th-option/need-help.php:33
+msgid "Spread the News"
+msgstr "Haz correr la voz"
+
+#: lib/th-option/th-option.php:43 lib/th-option/th-option.php:44
+msgid "Shop Mania"
+msgstr "Shop Mania"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Titanium to background"
+msgstr "Titanio a fondo"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "VeryBlue to background"
+msgstr "MuyAzul a fondo"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Orange Coral to background"
+msgstr "Coral naranja a fondo"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "MoonlitAsteroid secondary to tertiary"
+msgstr "MoonlitAsteroid secundario a terciario"
+
+#: functions.php:322
+msgid "Close"
+msgstr "Cerrar"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extremely Large"
+msgstr "Extremadamente grande"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra Huge"
+msgstr "Extra enorme"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Mojito background to tertiary"
+msgstr "Fondo mojito a terciario"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Bluelagoo background to secondary"
+msgstr "Fondo bluelagoo a secundario"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Jaipur primary to heading"
+msgstr "Jaipur principal a encabezado"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Green Beach tertiary to background"
+msgstr "Playa verde terciaria a fondo"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge (Display)"
+msgstr "Enorme (pantalla)"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra large (Recent Post Title)"
+msgstr "Extragrande (Título de entradas recientes)"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr "Grande"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Content Heading"
+msgstr "Encabezado del contenido"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Normal"
+msgstr "Normal"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Upper Heading"
+msgstr "Encabezado superior"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr "Mediana"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr "Pequeña"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra Small"
+msgstr "Muy pequeña"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Tiny"
+msgstr "Diminuta"
+
+#: lib/th-option/welcome.php:78
+msgid "Move To Top"
+msgstr "Mover a la parte superior"
+
+#: lib/th-option/welcome.php:76
+msgid "Advance Cart Page"
+msgstr "Página avanzada del carrito"
+
+#: lib/th-option/welcome.php:74
+msgid "Checkout Pages Classic, Standard, Stepped"
+msgstr "Páginas de pago clásica, estándar, por pasos"
+
+#: lib/th-option/welcome.php:72
+msgid "Advance Pagination"
+msgstr "Paginación avanzada"
+
+#: lib/th-option/welcome.php:70
+msgid "Product Styles"
+msgstr "Estilos de productos"
+
+#: lib/th-option/welcome.php:68
+msgid "2 Types of 404 Page Layouts"
+msgstr "2 tipos de diseños de página 404"
+
+#: lib/th-option/welcome.php:66
+msgid "3 Types of Login & Registrations "
+msgstr "3 tipos de acceso y registro "
+
+#: lib/th-option/welcome.php:64
+msgid "Typography Settings"
+msgstr "Ajustes de tipografía"
+
+#: lib/th-option/welcome.php:62
+msgid "Elemento Addons"
+msgstr "Elemento Addons"
+
+#: lib/th-option/welcome.php:60
+msgid "Color & Background"
+msgstr "Color y fondo"
+
+#: lib/th-option/welcome.php:58
+msgid "Container Settings"
+msgstr "Ajustes del contenedor"
+
+#: lib/th-option/welcome.php:56
+msgid "Advance Footer Layouts & Settings"
+msgstr "Diseños y ajustes avanzados del pie de página"
+
+#: lib/th-option/welcome.php:55
+msgid "Advance Single Product Page Settings "
+msgstr "Ajustes avanzados de la página de producto individual "
+
+#: lib/th-option/welcome.php:53
+msgid "Advance Sidebar Settings"
+msgstr "Ajustes avanzados de la barra lateral"
+
+#: lib/th-option/welcome.php:51
+msgid "Mobile Header"
+msgstr "Cabecera móvil"
+
+#: lib/th-option/welcome.php:49
+msgid "Advance Header Settings"
+msgstr "Ajustes avanzados de la cabecera"
+
+#: lib/th-option/welcome.php:47
+msgid "WooCommerce Page"
+msgstr "Página de WooCommerce"
+
+#: lib/th-option/welcome.php:45
+msgid "Blog Layouts"
+msgstr "Diseños de blog"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-single.php:37
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Seguir leyendo<span class=\"screen-reader-text\"> «%s»</span>"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-page.php:29
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Editar <span class=\"screen-reader-text\">%s</span>"
+
+#: template-parts/content-page.php:17 template-parts/content-single.php:48
+msgid "Pages:"
+msgstr "Páginas:"
+
+#: template-parts/content-none.php:44
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Parece que no encontramos lo que estás buscando. Puede que una búsqueda te ayude."
+
+#: template-parts/content-none.php:38
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Lo siento, pero nada coincide con tus términos de búsqueda. Por favor, inténtalo de nuevo con algunas palabras clave diferentes."
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content-none.php:25
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "¿Preparado para publicar tu primera entrada? <a href=\"%1$s\">Empieza aquí</a>."
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "No se ha encontrado nada"
+
+#: template-parts/author-bio.php:18
+msgid "Written by"
+msgstr "Escrito por"
+
+#: searchform.php:13
+msgid "Search"
+msgstr "Buscar"
+
+#: searchform.php:12
+msgid "search.."
+msgstr "buscar..."
+
+#: lib/th-option/welcome.php:45 lib/th-option/welcome.php:47
+#: lib/th-option/welcome.php:49 lib/th-option/welcome.php:51
+#: lib/th-option/welcome.php:53 lib/th-option/welcome.php:55
+#: lib/th-option/welcome.php:56 lib/th-option/welcome.php:58
+#: lib/th-option/welcome.php:60 lib/th-option/welcome.php:62
+#: lib/th-option/welcome.php:64 lib/th-option/welcome.php:66
+#: lib/th-option/welcome.php:68 lib/th-option/welcome.php:70
+#: lib/th-option/welcome.php:72 lib/th-option/welcome.php:74
+#: lib/th-option/welcome.php:76 lib/th-option/welcome.php:78
+msgid "Learn More"
+msgstr "Más información"
+
+#: lib/th-option/welcome.php:42
+msgid "More Options available with Th Shop Mania Pro"
+msgstr "Más opciones disponibles con Th Shop Mania Pro"
+
+#: lib/th-option/welcome.php:32
+msgid "Footer Section"
+msgstr "Sección de pie de página"
+
+#: lib/th-option/welcome.php:29
+msgid "Widgets"
+msgstr "Widgets"
+
+#: lib/th-option/welcome.php:28
+msgid "Header Image"
+msgstr "Imagen de cabecera"
+
+#: lib/th-option/welcome.php:27
+msgid "Woocommerce"
+msgstr "WooCommerce"
+
+#: lib/th-option/welcome.php:25
+msgid "Upload Logo"
+msgstr "Subir logo"
+
+#: lib/th-option/welcome.php:21
+msgid "Customizer Links"
+msgstr "Enlaces del personalizador"
+
+#: lib/th-option/welcome.php:15
+msgid "Start Customize"
+msgstr "Empezar a personalizar"
+
+#: lib/th-option/welcome.php:13
+msgid "Th Shop Mania theme support live customizer for home page set up. Everything visible at home page can be changed through customize panel"
+msgstr "El tema Shop Mania es compatible con el personalizador en vivo para la configuración de la página de inicio. Todo lo visible en la página de inicio se puede cambiar a través del panel de personalización"
+
+#: lib/th-option/welcome.php:12
+msgid "Customize Your Website"
+msgstr "Personaliza tu web"
+
+#: lib/th-option/th-option.php:370
+msgid "Activate Now"
+msgstr "Activar ahora"
+
+#: lib/notification/customizer-notification/thsm-custom-section.php:42
+#: lib/th-option/th-option.php:348
+msgid "Install Now"
+msgstr "Instalar ahora"
+
+#: lib/th-option/th-option.php:343
+msgid "Activated"
+msgstr "Activado"
+
+#: lib/th-option/th-option.php:284
+msgid "Details & Version"
+msgstr "Detalles y versión"
+
+#: lib/th-option/th-option.php:265
+msgid "Plugin Successfully Activated"
+msgstr "Plugin activado correctamente"
+
+#: lib/th-option/th-option.php:244
+msgid "No plugin specified"
+msgstr "No se ha especificado ningún plugin"
+
+#: lib/th-option/th-option.php:193
+msgid "Home Page"
+msgstr "Página de inicio"
+
+#: lib/th-option/th-option.php:165
+msgid "Welcome To %1s Theme"
+msgstr "Bienvenido al tema %1s"
+
+#: lib/th-option/th-option.php:43
+msgid "%s Options"
+msgstr "Opciones de %s"
+
+#: lib/th-option/tab-html.php:74
+msgid "Import Demo"
+msgstr "Importar demostración"
+
+#: lib/th-option/tab-html.php:73
+msgid "Install \"Starter site plugin\" mentioned below to activate import demo button."
+msgstr "Instala el «Starter site plugin» que se menciona a continuación para activar el botón de importar demostración."
+
+#: lib/th-option/tab-html.php:71
+msgid "Import Demo Content"
+msgstr "Importar el contenido de demostración"
+
+#: lib/th-option/tab-html.php:42
+msgid "Help"
+msgstr "Ayuda"
+
+#: lib/th-option/tab-html.php:41
+msgid "Get Child Theme"
+msgstr "Obtener el tema hijo"
+
+#: lib/th-option/tab-html.php:38
+msgid "Starter Templates"
+msgstr "Plantillas de inicio"
+
+#: lib/th-option/tab-html.php:38
+msgid "Demo Import"
+msgstr "Importar demo"
+
+#: lib/th-option/tab-html.php:37
+msgid "Recommended Plugin"
+msgstr "Plugin recomendado"
+
+#: lib/th-option/tab-html.php:36
+msgid "Welcome"
+msgstr "Te damos la bienvenida"
+
+#: lib/th-option/sidebar.php:43
+msgid "Submit a Ticket"
+msgstr "Enviar un tique"
+
+#: lib/th-option/sidebar.php:42
+msgid "Have a question, we are happy to help! Get in touch with our support team."
+msgstr "Si tienes alguna pregunta, ¡estaremos encantados de ayudarte! Ponte en contacto con nuestro equipo de soporte."
+
+#: lib/th-option/sidebar.php:41
+msgid "Support"
+msgstr "Soporte"
+
+#: lib/th-option/sidebar.php:36
+msgid "Watch Videos"
+msgstr "Ver los vídeos"
+
+#: lib/th-option/sidebar.php:35
+msgid "Want a guide? We have video tutorials to walk you through getting started."
+msgstr "¿Quieres una guía? Tenemos tutoriales en vídeo para guiarte en tus inicios."
+
+#: lib/th-option/sidebar.php:34
+msgid "Video Tutorials"
+msgstr "Videotutoriales"
+
+#: lib/th-option/sidebar.php:28
+msgid "Submit Review"
+msgstr "Enviar reseña"
+
+#: lib/th-option/sidebar.php:27
+msgid "We would love to hear your feedback."
+msgstr "Nos encantaría escuchar tus comentarios."
+
+#: lib/th-option/sidebar.php:26
+msgid "Leave us a review"
+msgstr "Déjanos una reseña"
+
+#: lib/th-option/sidebar.php:15
+msgid "Get Pro"
+msgstr "Obtener Pro"
+
+#: lib/th-option/sidebar.php:12
+msgid "Pre-made premium templates"
+msgstr "Plantillas premium prediseñadas"
+
+#: lib/th-option/sidebar.php:9
+msgid "Th Shop Mania Pro WordPress Theme"
+msgstr "Tema de WordPress Th Shop Mania"
+
+#: lib/th-option/need-help.php:26
+msgid " Go to docs"
+msgstr " Ir a la documentación"
+
+#: lib/th-option/need-help.php:25
+msgid "Our WordPress Theme is well documented, you can go with our documentation and learn to customize Th Shop Mania."
+msgstr "Nuestro tema para WordPress está bien documentado. Puedes ir a nuestra documentación y aprender a personalizar el tema Th Shop Mania."
+
+#: lib/th-option/need-help.php:24 lib/th-option/th-option.php:280
+msgid "Documentation"
+msgstr "Documentación"
+
+#: lib/th-option/need-help.php:17
+msgid "Create Child Theme"
+msgstr "Crear tema hijo"
+
+#: lib/th-option/need-help.php:14
+msgid "Before modifying theme core files. You should create child theme to make those changes update proof. Please follow this link to create child theme."
+msgstr "Antes de modificar los archivos del núcleo del tema, deberías crear un tema hijo para que esos cambios sean a prueba de actualizaciones. Por favor, sigue este enlace para crear un tema hijo."
+
+#: lib/th-option/need-help.php:13
+msgid "Create a child theme"
+msgstr "Crear un tema hijo"
+
+#: lib/th-option/need-help.php:6
+msgid "Need help ?"
+msgstr "¿ Necesitas ayuda ?"
+
+#: lib/th-option/need-help.php:3
+msgid "If you need any help you can contact to our support team"
+msgstr "Si necesitas ayuda, puedes ponerte en contacto con nuestro equipo de soporte"
+
+#: lib/th-option/need-help.php:2
+msgid "Contact Support"
+msgstr "Contactar con el soporte"
+
+#: lib/th-option/get-child-theme.php:6
+msgid "That's why we recommended to use child theme to make your site update proof."
+msgstr "Por eso te recomendamos que utilices un tema hijo para que tu sitio sea a prueba de actualizaciones."
+
+#: lib/th-option/get-child-theme.php:5
+msgid "Child theme inherit the style and functionality of parent theme, you can easily update the parent theme without losing its Customization."
+msgstr "El tema hijo hereda el estilo y la funcionalidad del tema padre. Puedes actualizar fácilmente el tema padre sin perder su personalización."
+
+#: lib/th-option/free-pro.php:4
+msgid "Coming Soon"
+msgstr "Próximamente"
+
+#: lib/th-option/child-notify.php:65 lib/th-option/get-child-theme.php:7
+msgid "Get Child Theme Now"
+msgstr "Obtener el tema hijo ahora"
+
+#: lib/th-option/child-notify.php:64
+msgid "Child theme inherit the style and functionality of parent theme, you can easily update the parent theme without losing its Customization. That's why we highly recommend you to use Child theme to make your site update proof."
+msgstr "El tema hijo hereda el estilo y la funcionalidad del tema padre, puedes actualizar fácilmente el tema padre sin perder su personalización. Por eso te recomendamos encarecidamente que utilices un tema hijo para que tu sitio sea a prueba de actualizaciones."
+
+#: lib/page-meta-box/page-meta-box.php:249
+msgid "Disable"
+msgstr "Desactivar"
+
+#: lib/page-meta-box/page-meta-box.php:248
+msgid "Enable"
+msgstr "Activar"
+
+#: lib/page-meta-box/page-meta-box.php:247
+msgid "Customizer Setting"
+msgstr "Ajuste del personalizador"
+
+#: lib/page-meta-box/page-meta-box.php:242
+msgid "Transparent Header"
+msgstr "Cabecera transparente"
+
+#: lib/page-meta-box/page-meta-box.php:238
+msgid "Disable Above Footer Area"
+msgstr "Desactivar la zona superior del pie de página"
+
+#: lib/page-meta-box/page-meta-box.php:217
+msgid "Disable Page Header"
+msgstr "Desactivar la cabecera de la página"
+
+#: lib/page-meta-box/page-meta-box.php:210
+msgid "Disable Bottom Footer"
+msgstr "Desactivar el pie de página inferior"
+
+#: lib/page-meta-box/page-meta-box.php:195
+#: lib/page-meta-box/page-meta-box.php:203
+msgid "Disable Footer Widget Area"
+msgstr "Desactivar el área de widgets del pie de página"
+
+#: lib/page-meta-box/page-meta-box.php:188
+msgid "Disable Feature Image"
+msgstr "Desactivar la imagen destacada"
+
+#: lib/page-meta-box/page-meta-box.php:181
+msgid "Disable title"
+msgstr "Desactivar el título"
+
+#: lib/page-meta-box/page-meta-box.php:174
+msgid "Disable Bottom Header"
+msgstr "Desactivar la cabecera inferior"
+
+#: lib/page-meta-box/page-meta-box.php:167
+msgid "Disable Main Header"
+msgstr "Desactivar la cabecera principal"
+
+#: lib/page-meta-box/page-meta-box.php:160
+msgid "Disable Above Header"
+msgstr "Desactivar la cabecera superior"
+
+#: lib/page-meta-box/page-meta-box.php:151
+msgid "Disable section"
+msgstr "Desactivar sección"
+
+#: lib/page-meta-box/page-meta-box.php:146
+msgid "Left Sidebar"
+msgstr "Barra lateral izquierda"
+
+#: lib/page-meta-box/page-meta-box.php:145
+msgid "Right Sidebar"
+msgstr "Barra lateral derecha"
+
+#: lib/page-meta-box/page-meta-box.php:144
+msgid "No Sidebar"
+msgstr "Sin barra lateral"
+
+#: lib/page-meta-box/page-meta-box.php:139
+msgid "Sidebar"
+msgstr "Barra lateral"
+
+#: lib/page-meta-box/page-meta-box.php:133
+msgid "Dynamic Sidebar"
+msgstr "Barra lateral dinámica"
+
+#: lib/breadcrumbs/breadcrumbs.php:792
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr "W"
+
+#: lib/breadcrumbs/breadcrumbs.php:764 lib/breadcrumbs/breadcrumbs.php:1194
+msgctxt "daily archives date format"
+msgid "j"
+msgstr "j"
+
+#: lib/breadcrumbs/breadcrumbs.php:763 lib/breadcrumbs/breadcrumbs.php:819
+#: lib/breadcrumbs/breadcrumbs.php:1190
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr "F"
+
+#: lib/breadcrumbs/breadcrumbs.php:762 lib/breadcrumbs/breadcrumbs.php:791
+#: lib/breadcrumbs/breadcrumbs.php:818 lib/breadcrumbs/breadcrumbs.php:845
+#: lib/breadcrumbs/breadcrumbs.php:1186
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: lib/breadcrumbs/breadcrumbs.php:746
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr "g a"
+
+#: lib/breadcrumbs/breadcrumbs.php:729
+msgctxt "minute archives time format"
+msgid "i"
+msgstr "i"
+
+#: lib/breadcrumbs/breadcrumbs.php:712
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr "g:i a"
+
+#. Translators: Weekly archive title. %s is the week date format.
+#: lib/breadcrumbs/breadcrumbs.php:260
+msgid "Week %s"
+msgstr "Semana %s"
+
+#. Translators: Minute archive title. %s is the minute time format.
+#: lib/breadcrumbs/breadcrumbs.php:258
+msgid "Minute %s"
+msgstr "Minuto %s"
+
+#. Translators: %s is the page number.
+#: lib/breadcrumbs/breadcrumbs.php:256
+msgid "Page %s"
+msgstr "Página %s"
+
+#. Translators: %s is the search query. The HTML entities are opening and
+#. closing curly quotes.
+#: lib/breadcrumbs/breadcrumbs.php:254
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Resultados de búsqueda para &#8220;%s&#8221;"
+
+#: lib/breadcrumbs/breadcrumbs.php:252
+msgid "Archives"
+msgstr "Archivo"
+
+#: lib/breadcrumbs/breadcrumbs.php:251
+msgid "404 Not Found"
+msgstr "404 No encontrado"
+
+#: lib/breadcrumbs/breadcrumbs.php:250
+msgid "Home"
+msgstr "Inicio"
+
+#: lib/breadcrumbs/breadcrumbs.php:249
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr "Migas de pan"
+
+#: lib/breadcrumbs/breadcrumbs.php:248
+msgid "Browse:"
+msgstr "Explorar:"
+
+#: inc/woocommerce/woo-function.php:590
+msgid "Sale!"
+msgstr "¡Oferta!"
+
+#: inc/woocommerce/woo-function.php:507 inc/woocommerce/woo-function.php:516
+msgid "Added"
+msgstr "Añadido"
+
+#: inc/woocommerce/woo-function.php:516
+msgid "Already"
+msgstr "Ya"
+
+#: inc/woocommerce/woo-function.php:516
+msgid "wishlist"
+msgstr "lista de deseos"
+
+#: inc/woocommerce/woo-function.php:501 inc/woocommerce/woo-function.php:505
+#: inc/woocommerce/woo-function.php:516
+msgid "Wishlist"
+msgstr "Lista de deseos"
+
+#: inc/woocommerce/woo-function.php:483
+msgid "Compare"
+msgstr "Comparar"
+
+#: inc/woocommerce/woo-function.php:461
+#: thnew-quick-view/thnew-quick-view.php:740
+msgid "Add To Cart"
+msgstr "Añadir al carrito"
+
+#: inc/woocommerce/woo-function.php:236 inc/woocommerce/woo-function.php:326
+msgid "No categories"
+msgstr "Sin categorías"
+
+#: inc/woocommerce/woo-function.php:103
+msgid "Meta Information"
+msgstr "Información meta"
+
+#: inc/woocommerce/woo-core.php:947
+msgid "Share:"
+msgstr "Compartir:"
+
+#: inc/woocommerce/woo-core.php:942
+msgid "(In Stock)"
+msgstr "(Hay existencias)"
+
+#: inc/woocommerce/woo-core.php:757 inc/woocommerce/woo-core.php:759
+msgid "Load More"
+msgstr "Cargar más"
+
+#: inc/woocommerce/woo-core.php:688 inc/woocommerce/woo-core.php:692
+msgid "List View"
+msgstr "Vista de lista"
+
+#: inc/woocommerce/woo-core.php:686 inc/woocommerce/woo-core.php:690
+msgid "Grid View"
+msgstr "Vista de cuadrícula"
+
+#: inc/woocommerce/woo-core.php:311 inc/woocommerce/woo-core.php:316
+msgid "Quick View"
+msgstr "Vista rápida"
+
+#: inc/woocommerce/woo-core.php:250
+msgid "No more products to show."
+msgstr "No hay más productos que mostrar."
+
+#: inc/woocommerce/woo-core.php:99
+msgid "This sidebar will be used on Single Product page."
+msgstr "Esta barra lateral se usará en la página de producto individual."
+
+#: inc/woocommerce/woo-core.php:97
+msgid "Product Page Sidebar"
+msgstr "Barra lateral de la página de producto"
+
+#: inc/woocommerce/woo-core.php:90
+msgid "Add widgets here to appear in your WooCommerce Sidebar."
+msgstr "Añade widgets aquí para que aparezcan en la barra lateral de WooCommerce."
+
+#: inc/woocommerce/woo-core.php:88
+msgid "WooCommerce Shop Page Sidebar"
+msgstr "Barra lateral de la página de tienda de WooCommerce"
+
+#: inc/woocommerce/woo-core.php:856 thnew-quick-view/thnew-quick-view.php:998
+msgid "Categories:"
+msgstr "Categorías:"
+
+#: inc/header-function.php:303
+msgid "Menu"
+msgstr "Menú"
+
+#: inc/footer-function.php:110
+msgid "Made with"
+msgstr "Hecho con"
+
+#. translators: Copyright date format, see https://www.php.net/date
+#: inc/footer-function.php:103
+msgctxt "copyright date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/footer-function.php:62 inc/footer-function.php:69
+#: inc/footer-function.php:76 inc/footer-function.php:83
+msgid "Add Widget"
+msgstr "Añadir widget"
+
+#: inc/blog-function.php:109 inc/blog-function.php:110
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#: inc/blog-function.php:88
+msgid "Read More"
+msgstr "Leer más"
+
+#: inc/admin-function.php:179
+msgid "Blog"
+msgstr "Blog"
+
+#: inc/admin-function.php:172
+msgid "Search Results for: %s"
+msgstr "Resultados de la búsqueda para: %s"
+
+#: inc/admin-function.php:49
+msgid "Main"
+msgstr "Principal"
+
+#: inc/header-function.php:44
+msgid "Skip to content"
+msgstr "Saltar al contenido"
+
+#: functions.php:280
+msgid "Footer Widget Area %d"
+msgstr "Área de widgets del pie de página %d"
+
+#: functions.php:271
+msgid "Add widgets here to appear in top header."
+msgstr "Añade widgets aquí para que aparezcan en la cabecera superior."
+
+#: functions.php:269
+msgid "Above Header Widget"
+msgstr "Widget de cabecera superior"
+
+#: functions.php:262
+msgid "Add widgets here to appear in your primary sidebar."
+msgstr "Añade widgets aquí para que aparezcan en tu barra lateral principal."
+
+#: functions.php:260
+msgid "Primary Sidebar"
+msgstr "Barra lateral principal"
+
+#: functions.php:191
+msgid "Th Product Compare"
+msgstr "Th Product Compare"
+
+#: functions.php:167
+msgid "WP Popup Builder – Popup Forms & Newsletter"
+msgstr "WP Popup Builder – Popup Forms & Newsletter"
+
+#: functions.php:145
+msgid "Lead Form Builder"
+msgstr "Lead Form Builder"
+
+#: functions.php:214
+msgid "Th Variation Swatches"
+msgstr "Th Variation Swatches"
+
+#: functions.php:179
+msgid "Th Advance Product Search"
+msgstr "Th Advance Product Search"
+
+#: functions.php:134
+msgid "Th All In One Woo Cart"
+msgstr "Th All In One Woo Cart"
+
+#: functions.php:106 functions.php:229
+msgid "Hunk Companion"
+msgstr "Hunk Companion"
+
+#. Template Name of the theme
+msgid "Full Width Template"
+msgstr "Plantilla de ancho completo"
+
+#: dokan/store.php:85
+msgid "No products were found of this vendor!"
+msgstr "¡No se han encontrado productos de este vendedor!"
+
+#: customizer/set-identity.php:65
+msgid "Footer Copyright"
+msgstr "Copyright de pie de página"
+
+#: customizer/set-identity.php:58
+msgid "Retina Logo"
+msgstr "Logo retina"
+
+#: customizer/set-identity.php:35
+msgid "Display Tagline"
+msgstr "Mostrar la descripción corta"
+
+#: customizer/set-identity.php:21
+msgid "Display Site Title"
+msgstr "Mostrar el título del sitio"
+
+#: customizer/section/woo/single-product.php:21
+msgid "Force to disable sidebar in product page."
+msgstr "Forzar la desactivación de la barra lateral en la página del producto."
+
+#: customizer/section/woo/single-product.php:10
+msgid "Single Product"
+msgstr "Producto individual"
+
+#: customizer/section/color/global-color.php:26
+msgid "Theme Color"
+msgstr "Color del tema"
+
+#: customizer/section/color/global-color.php:12 lib/th-option/welcome.php:26
+msgid "Global Colors"
+msgstr "Colores globales"
+
+#: customizer/section/color/global-color.php:8
+msgid "Total Color & BG Options"
+msgstr "Color del total y opciones del fondo"
+
+#: customizer/pro-button/class-customize.php:75
+msgid "Go Pro"
+msgstr "Obtener la versión Pro"
+
+#: customizer/pro-button/class-customize.php:74
+msgid "Unlock Pro Features"
+msgstr "Desbloquear las características Pro"
+
+#: customizer/extend-customizer/class-th-shop-mania-wp-customize-section.php:52
+msgid "Customizing"
+msgstr "Personalizando"
+
+#: customizer/extend-customizer/class-th-shop-mania-wp-customize-section.php:50
+msgid "Customizing &#9656; %s"
+msgstr "Personalizando &#9656; %s"
+
+#: customizer/custom-customizer.php:490
+msgid "Doc"
+msgstr "Documentación"
+
+#: comments.php:65
+msgid "Comments are closed."
+msgstr "Los comentarios están cerrados."
+
+#. translators: 1: comment count number, 2: post title.
+#: comments.php:41
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s comentario sobre &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s comentarios sobre &ldquo;%2$s&rdquo;"
+
+#. translators: %s: Post title
+#: comments.php:34
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr "Un comentario en &ldquo;%s&rdquo;"
+
+#. Author URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://www.themehunk.com"
+msgstr "https://www.themehunk.com"
+
+#. Author of the theme
+#: style.css lib/th-option/th-option.php:163
+#, gp-priority: low
+msgid "ThemeHunk"
+msgstr "ThemeHunk"
+
+#. Theme URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://themehunk.com/th-shop-mania/"
+msgstr "https://themehunk.com/th-shop-mania/"

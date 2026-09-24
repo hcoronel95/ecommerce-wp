@@ -1,0 +1,180 @@
+/* Smooth scrolling in customizer sections */
+#customize-controls .accordion-section-content {
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Prevent content jumping */
+#customize-controls .accordion-section.open {
+    overflow-y: auto;
+}
+
+/* Ensure no jumping when opening a section */
+html {
+    overflow-y: scroll;
+}
+
+.customize-pane-parent{
+	background: #FFF;
+}
+#customize-theme-controls .accordion-section-title{
+	background: transparent;
+    margin: 9px 21px;
+    color: #111;
+    border: 0;
+    border-radius: 7px;
+}
+#customize-controls .control-section .accordion-section-title:hover{
+	background: #eeebeb;
+	color: #111;
+}
+#customize-outer-theme-controls .accordion-section-title:after, 
+#customize-theme-controls .accordion-section-title:after,
+#customize-controls .control-section.control-section-alm_section .accordion-section-title,
+#customize-controls .control-section.control-section-alm_section .accordion-section-title:after{
+	color: #111;
+}
+#customize-controls .control-section.control-section-alm_section .accordion-section-title{
+	border: 0;
+}
+.wp-full-overlay-sidebar-content{
+	/*background: #fdfbfb;*/
+	background: #FFF;
+}
+#customize-controls .control-section.control-section-alm_section .accordion-section-title:hover, #customize-controls .control-section.control-section-alm_section .accordion-section-title:focus{
+	border-left-color: transparent;
+}
+#customize-controls .control-section.control-section-alm_section .accordion-section-title:hover{
+	color: #111;
+}
+.customize-control-title{
+	background: #FFF;
+	color: #111;
+	Padding: 8px 0;
+	text-transform: capitalize;
+}
+/* Multiple Checkbox */
+.customize-control .customize-inside-control-row label{
+	font-size: 13px;
+	line-height: 16px;
+	color: #111;
+	margin-top: 21px;
+	margin-bottom: 21px;
+}
+.opn-doc-link{
+	font-size: 16px;
+	line-height: 21px;
+	color: #111;
+}
+#customize-controls li.customize-control.customize-control-custom_message .description{
+	color: #111;
+    /*background: #f9fff6;*/
+    background: transparent;
+    padding: 9px 0;
+    font-weight: 500;
+    font-style: italic;
+}
+#customize-controls .description{
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 21px;
+	color: #111;
+}
+.customize-control input[type=email], 
+.customize-control input[type=number], 
+.customize-control input[type=password], 
+.customize-control input[type=search], 
+.customize-control input[type=text], 
+.customize-control input[type=url]{
+	height: 40px;
+}
+body.wp-customizer .wp-picker-container{
+	max-width: 290px;
+}
+#customize-theme-controls .control-panel-themes>.accordion-section-title, #customize-theme-controls .control-panel-themes>.accordion-section-title:hover,
+.control-panel-themes #accordion-section-installed_themes,
+.control-panel-themes .theme-section button{
+	border: 0;
+}
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2), #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu, #customize-theme-controls .control-section-nav_menu_locations .accordion-section-title{
+	border: 0;
+}
+.customize-control .wp-picker-input-wrap input[type=text]{
+	height: 30px;
+	margin-left: 2px;
+}
+.control-panel-themes .theme-section, 
+#customize-theme-controls .control-panel-themes>.accordion-section-title, #customize-theme-controls .control-panel-themes>.accordion-section-title:hover{
+	margin:  9px 21px;
+	padding: 10px 10px 11px 14px;
+}
+.control-panel-themes .theme-section button{
+	border-radius: 7px;
+}
+.control-panel-themes .theme-section button:hover{
+	color: #111;
+}
+#customize-theme-controls .control-section.open{
+	border-bottom: 0;
+}
+#customize-theme-controls .panel-meta .accordion-section-title{
+	margin: 0;
+}
+.wp-picker-container .iris-picker.iris-border{
+	border: 0;
+}
+.button-link.add-new-toggle{
+	margin-top: 10px;
+}
+body.wp-customizer .wp-picker-input-wrap{
+	overflow: visible;
+}
+.customize-control .wp-picker-input-wrap input[type=text],
+.wp-customizer .wp-picker-input-wrap .button.wp-picker-default,
+.wp-customizer .wp-picker-input-wrap .button.wp-picker-clear{
+	height: 38px;
+}
+.wp-full-overlay-sidebar .wp-full-overlay-header,
+.wp-full-overlay-sidebar .wp-full-overlay-header .customize-controls-close{
+	background: #FFF;
+}
+.customize-controls-close{
+	border-top-color: transparent;
+}
+.wp-core-ui .button, .wp-core-ui .button-primary, .wp-core-ui .button-secondary{
+	border-radius: 4px;
+}
+#customize-control-th_shop_mania_pro_single_product_layout.customize-control-radio-image label,
+#customize-control-th_shop_mania_checkout_page_layout.customize-control-radio-image label{
+	max-width: 49%;
+	margin-right: 2%;
+}
+#customize-control-th_shop_mania_pro_single_product_layout.customize-control-radio-image label:nth-of-type(2n+2),
+#customize-control-th_shop_mania_checkout_page_layout.customize-control-radio-image label:nth-of-type(2n+2){
+	margin-right: 0;
+}
+#customize-control-th_shop_mania_checkout_page_layout .ui-checkboxradio-label:after{
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 9px;
+	color: #454545;
+}
+#customize-control-th_shop_mania_checkout_page_layout .ui-checkboxradio-label:nth-of-type(1):after{
+	content: 'Standard';
+}
+#customize-control-th_shop_mania_checkout_page_layout .ui-checkboxradio-label:nth-of-type(2):after{
+	content: 'Vertical';
+}
+#customize-control-th_shop_mania_checkout_page_layout .ui-checkboxradio-label:nth-of-type(3):after{
+	content: 'Stepped';
+}
+input[type=checkbox]{
+	margin-bottom: 2px;
+}
+
+
+.customize-control-checkbox-multiple ul{
+	max-height: 251px;
+	overflow-y: auto;
+}

@@ -1,0 +1,400 @@
+/* Mercadito Panel Rápido · Mi cuenta y Mi tienda en el sitio */
+body.woocommerce-account{--mc-c:#FFF9F1;--mc-c2:#F6EEE2;--mc-t:#2B2118;--mc-m:#6B5B4B;--mc-l:#E6DCCD;--mc-l2:#D9CFBF;--mc-n:#E08A2B;--mc-n2:#FDF1E2;--mc-n3:#9A5413;--mc-sombra:0 1px 2px rgba(43,33,24,.05),0 10px 30px rgba(43,33,24,.06)}
+body.woocommerce-account main .wp-block-post-title,body.woocommerce-account main .woocommerce{max-width:var(--wp--style--global--wide-size,1340px)}
+body.woocommerce-account main .woocommerce::before,body.woocommerce-account main .woocommerce::after{content:none}
+body.woocommerce-account .woocommerce *{box-sizing:border-box}
+body.woocommerce-account main{margin-top:0!important}
+body.woocommerce-account main .woocommerce{font-size:16px;font-weight:400;line-height:1.5;color:var(--mc-t)}
+body.woocommerce-account main .woocommerce strong,body.woocommerce-account main .woocommerce b{font-weight:700}
+body.woocommerce-account .mc-svg{width:20px;height:20px;flex:none}
+
+/* Estructura: menú lateral y contenido */
+body.woocommerce-account.logged-in main .woocommerce{display:grid;grid-template-columns:272px minmax(0,1fr);gap:28px;align-items:start}
+body.woocommerce-account.logged-in main .woocommerce > .woocommerce-notices-wrapper{grid-column:1/-1}
+body.woocommerce-account.logged-in main .woocommerce > .woocommerce-notices-wrapper:empty{display:none}
+body.woocommerce-account .woocommerce-MyAccount-navigation,body.woocommerce-account .woocommerce-MyAccount-content{float:none;width:auto;max-width:none;margin:0}
+body.woocommerce-account .mc-lateral{position:sticky;top:calc(var(--wp-admin--admin-bar--height,0px) + 24px);display:flex;flex-direction:column;gap:12px}
+body.woocommerce-account .mc-perfil{display:flex;gap:12px;align-items:center;padding:18px;background:#fff;border:1px solid var(--mc-l);border-radius:20px;box-shadow:var(--mc-sombra)}
+body.woocommerce-account .mc-avatar{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--mc-g2),var(--mc-v));color:#fff;font-weight:800;font-size:22px;line-height:1}
+body.woocommerce-account .mc-perfil-txt{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+body.woocommerce-account .mc-perfil-txt strong{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px;line-height:1.25;color:var(--mc-t)}
+body.woocommerce-account .mc-perfil-txt small{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--mc-m);font-size:13px}
+body.woocommerce-account .mc-rol{margin-top:6px;padding:3px 10px;border-radius:999px;background:var(--mc-n2);color:var(--mc-n3);font-size:12px;font-weight:700;line-height:1.5}
+body.woocommerce-account .mc-rol.cliente{background:var(--mc-v3);color:var(--mc-v2)}
+body.woocommerce-account .woocommerce-MyAccount-navigation ul{list-style:none;margin:0;padding:8px;background:#fff;border:1px solid var(--mc-l);border-radius:20px;box-shadow:var(--mc-sombra);display:flex;flex-direction:column;gap:2px}
+body.woocommerce-account .woocommerce-MyAccount-navigation li{margin:0;padding:0;border:0;list-style:none}
+body.woocommerce-account .woocommerce-MyAccount-navigation li::before{display:none}
+body.woocommerce-account .woocommerce-MyAccount-navigation li a,body.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;color:var(--mc-t);font-size:15px;font-weight:600;line-height:1.3;text-decoration:none;transition:background .15s,color .15s}
+body.woocommerce-account .woocommerce-MyAccount-navigation li a::before{content:"";flex:none;width:20px;height:20px;background:currentColor;-webkit-mask:var(--mc-i) center/contain no-repeat;mask:var(--mc-i) center/contain no-repeat;opacity:.8}
+body.woocommerce-account .woocommerce-MyAccount-navigation li a:hover,body.woocommerce-account .woocommerce-MyAccount-navigation li a:focus-visible{background:var(--mc-c);color:var(--mc-v)}
+body.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a,body.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a:hover{background:var(--mc-v);color:#fff;box-shadow:0 6px 16px color-mix(in srgb,var(--mc-v) 25%,transparent);text-decoration:none}
+body.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a::before{opacity:1}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--dashboard{--mc-i:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3C%2Fsvg%3E")}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--mi-tienda{--mc-i:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%209l2-5h14l2%205%22%2F%3E%3Cpath%20d%3D%22M4%209h16v11H4z%22%2F%3E%3Cpath%20d%3D%22M9%2020v-6h6v6%22%2F%3E%3C%2Fsvg%3E")}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--orders{--mc-i:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%207h12l-1%2013H7L6%207z%22%2F%3E%3Cpath%20d%3D%22M9%207a3%203%200%200%201%206%200%22%2F%3E%3C%2Fsvg%3E")}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--edit-address{--mc-i:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2021s-7-6.2-7-11a7%207%200%200%201%2014%200c0%204.8-7%2011-7%2011z%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2210%22%20r%3D%222.5%22%2F%3E%3C%2Fsvg%3E")}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--edit-account{--mc-i:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%228%22%20r%3D%224%22%2F%3E%3Cpath%20d%3D%22M4%2021c1.5-4%204.5-6%208-6s6.5%202%208%206%22%2F%3E%3C%2Fsvg%3E")}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--payment-methods{--mc-i:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%226%22%20width%3D%2218%22%20height%3D%2212%22%20rx%3D%222%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%222.5%22%2F%3E%3Cpath%20d%3D%22M7%209h.01M17%2015h.01%22%2F%3E%3C%2Fsvg%3E")}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--customer-logout{--mc-i:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M15%204h3a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202h-3%22%2F%3E%3Cpath%20d%3D%22M10%2017l-5-5%205-5%22%2F%3E%3Cpath%20d%3D%22M5%2012h11%22%2F%3E%3C%2Fsvg%3E");margin-top:6px;padding-top:6px;border-top:1px solid var(--mc-l)}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--customer-logout a{color:#A33A1C}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--customer-logout a:hover{background:#FBEAE5;color:#8A2A12}
+body.woocommerce-account .woocommerce-MyAccount-content{background:#fff;border:1px solid var(--mc-l);border-radius:24px;padding:32px;box-shadow:var(--mc-sombra);min-width:0;color:var(--mc-t)}
+body.woocommerce-account .woocommerce-MyAccount-content > :first-child{margin-top:0}
+body.woocommerce-account .woocommerce-MyAccount-content > :last-child{margin-bottom:0}
+body.woocommerce-account .woocommerce-MyAccount-content h2{font-size:22px;font-weight:700;line-height:1.25;margin:0 0 14px}
+body.woocommerce-account .woocommerce-MyAccount-content h3{font-size:18px;font-weight:700;line-height:1.3;margin:0 0 12px}
+body.woocommerce-account .woocommerce-MyAccount-content p{line-height:1.6}
+body.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner,body.woocommerce-account .woocommerce .wc-block-components-notice-banner{border-radius:14px;margin:0 0 20px}
+
+/* Botones y piezas comunes */
+body.woocommerce-account .mc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border:1px solid transparent;border-radius:12px;font-size:15px;font-weight:700;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s,border-color .15s,box-shadow .15s}
+body.woocommerce-account .mc-btn .mc-svg{width:18px;height:18px}
+body.woocommerce-account .mc-btn-claro{background:#fff;color:var(--mc-v)}
+body.woocommerce-account .mc-btn-claro:hover,body.woocommerce-account .mc-btn-claro:focus-visible{background:var(--mc-c);color:var(--mc-v2)}
+body.woocommerce-account .mc-btn-borde{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+body.woocommerce-account .mc-btn-borde:hover,body.woocommerce-account .mc-btn-borde:focus-visible{background:rgba(255,255,255,.14);color:#fff}
+body.woocommerce-account .mc-btn-verde{background:var(--mc-v);color:#fff}
+body.woocommerce-account .mc-btn-verde:hover,body.woocommerce-account .mc-btn-verde:focus-visible{background:var(--mc-v2);color:#fff;box-shadow:0 6px 16px color-mix(in srgb,var(--mc-v) 25%,transparent)}
+body.woocommerce-account .mc-icono{flex:none;display:inline-grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--mc-v3);color:var(--mc-v)}
+body.woocommerce-account .mc-icono .mc-svg{width:22px;height:22px}
+body.woocommerce-account .mc-icono-naranja{background:#fff;color:var(--mc-n)}
+body.woocommerce-account .mc-kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;opacity:.85}
+body.woocommerce-account .mc-chip{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--mc-c2);color:var(--mc-m);font-size:12px;font-weight:700;white-space:nowrap}
+body.woocommerce-account .mc-chip.verde{background:var(--mc-v3);color:var(--mc-v2)}
+body.woocommerce-account .mc-estado{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:#EEE7DC;color:#5E5245;font-size:13px;font-weight:700;line-height:1.3;white-space:nowrap}
+body.woocommerce-account .mc-estado::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+body.woocommerce-account .mc-estado.on-hold{background:#FCE9D2;color:#8A4B0F}
+body.woocommerce-account .mc-estado.processing{background:#DCEBFA;color:#1D4F7A}
+body.woocommerce-account .mc-estado.completed{background:#D5EEE2;color:#14533B}
+body.woocommerce-account .mc-estado.cancelled,body.woocommerce-account .mc-estado.failed,body.woocommerce-account .mc-estado.refunded{background:#F8DDD8;color:#8C2A1C}
+body.woocommerce-account .mc-vacio{display:flex;flex-direction:column;align-items:center;gap:6px;padding:34px 18px;border:1px dashed var(--mc-l2);border-radius:18px;background:var(--mc-c);text-align:center}
+body.woocommerce-account .mc-vacio strong{font-size:17px}
+body.woocommerce-account .mc-vacio small{color:var(--mc-m);font-size:14px;margin-bottom:6px}
+
+/* Resumen */
+body.woocommerce-account .mc-hero{position:relative;overflow:hidden;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding:30px 32px;border-radius:20px;background:linear-gradient(125deg,var(--mc-g1) 0%,var(--mc-v) 55%,var(--mc-g2) 100%);color:#fff;margin:0 0 22px}
+body.woocommerce-account .mc-hero::before{content:"";position:absolute;right:-70px;top:-90px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.07)}
+body.woocommerce-account .mc-hero::after{content:"";position:absolute;right:120px;bottom:-110px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05)}
+body.woocommerce-account .mc-hero > *{position:relative;z-index:1}
+body.woocommerce-account .woocommerce-MyAccount-content .mc-hero h2{color:#fff;margin:6px 0 6px;font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.01em;line-height:1.15}
+body.woocommerce-account .mc-hero p{margin:0;color:rgba(255,255,255,.9);font-size:16px}
+body.woocommerce-account .mc-encargado{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:18px 20px;margin:0 0 22px;border-radius:18px;background:var(--mc-n2);border:1px solid #F3D3AB}
+body.woocommerce-account .mc-encargado-txt{flex:1;min-width:220px;display:flex;flex-direction:column;gap:2px}
+body.woocommerce-account .mc-encargado-txt strong{font-size:16px}
+body.woocommerce-account .mc-encargado-txt span{color:var(--mc-n3);font-size:14px}
+body.woocommerce-account .mc-accesos{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:0 0 26px}
+body.woocommerce-account .mc-acceso{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:20px;border:1px solid var(--mc-l);border-radius:18px;background:#fff;color:var(--mc-t);text-decoration:none;transition:transform .15s,box-shadow .15s,border-color .15s}
+body.woocommerce-account .mc-acceso .mc-icono{margin-bottom:10px}
+body.woocommerce-account .mc-acceso strong{font-size:16px}
+body.woocommerce-account .mc-acceso small{color:var(--mc-m);font-size:14px;line-height:1.4}
+body.woocommerce-account .mc-acceso::after{content:"";position:absolute;top:22px;right:20px;width:18px;height:18px;background:var(--mc-l2);-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012h14%22%2F%3E%3Cpath%20d%3D%22M13%206l6%206-6%206%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012h14%22%2F%3E%3Cpath%20d%3D%22M13%206l6%206-6%206%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;transition:transform .15s,background .15s}
+body.woocommerce-account .mc-acceso:hover,body.woocommerce-account .mc-acceso:focus-visible{border-color:var(--mc-v);box-shadow:0 14px 30px rgba(43,33,24,.08);transform:translateY(-2px);color:var(--mc-t)}
+body.woocommerce-account .mc-acceso:hover::after{background:var(--mc-v);transform:translateX(3px)}
+body.woocommerce-account .mc-bloque-cab{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 12px}
+body.woocommerce-account .woocommerce-MyAccount-content .mc-bloque-cab h3{margin:0}
+body.woocommerce-account .mc-bloque-cab a{color:var(--mc-v);font-weight:700;font-size:14px;text-decoration:none}
+body.woocommerce-account .mc-pedido{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:18px 20px;border:1px solid var(--mc-l);border-radius:18px;background:var(--mc-c)}
+body.woocommerce-account .mc-miniaturas{display:flex;padding-left:10px}
+body.woocommerce-account .mc-miniaturas img{width:52px;height:52px;margin-left:-10px;border-radius:14px;border:3px solid var(--mc-c);object-fit:cover;background:#fff}
+body.woocommerce-account .mc-pedido-datos{flex:1;min-width:200px;display:flex;flex-direction:column;gap:2px}
+body.woocommerce-account .mc-pedido-datos strong{font-size:17px}
+body.woocommerce-account .mc-pedido-datos small{color:var(--mc-m);font-size:14px}
+
+/* Formularios de WooCommerce */
+body.woocommerce-account .woocommerce form .form-row{margin:0 0 16px;padding:0;float:none;width:auto}
+body.woocommerce-account .woocommerce form .form-row label,body.woocommerce-account .mt-f-campo label,body.woocommerce-account .mt-f-etiqueta{display:block;margin:0 0 6px;font-size:14px;font-weight:700;line-height:1.3;color:var(--mc-t)}
+body.woocommerce-account .woocommerce form .form-row label.woocommerce-form__label-for-checkbox{display:inline-flex;align-items:center;gap:8px;font-weight:600;cursor:pointer}
+body.woocommerce-account .woocommerce form .form-row .required{color:#B3261E;text-decoration:none;border:0}
+body.woocommerce-account .woocommerce form .form-row input.input-text,body.woocommerce-account .woocommerce form .form-row select,body.woocommerce-account .woocommerce form .form-row textarea,body.woocommerce-account .mt-f input[type=text],body.woocommerce-account .mt-f input[type=number],body.woocommerce-account .mt-f input[type=tel],body.woocommerce-account .mt-f input[type=email],body.woocommerce-account .mt-f input[type=url],body.woocommerce-account .mt-f select,body.woocommerce-account .mt-f textarea{width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--mc-l2);border-radius:12px;background:#fff;color:var(--mc-t);font:inherit;font-size:16px;line-height:1.4;box-shadow:none;transition:border-color .15s,box-shadow .15s}
+body.woocommerce-account .woocommerce form .form-row textarea,body.woocommerce-account .mt-f textarea{min-height:96px;resize:vertical}
+body.woocommerce-account .woocommerce form .form-row input.input-text:focus,body.woocommerce-account .woocommerce form .form-row select:focus,body.woocommerce-account .woocommerce form .form-row textarea:focus,body.woocommerce-account .mt-f input:focus,body.woocommerce-account .mt-f select:focus,body.woocommerce-account .mt-f textarea:focus{outline:none;border-color:var(--mc-v);box-shadow:0 0 0 3px color-mix(in srgb,var(--mc-v) 18%,transparent)}
+body.woocommerce-account .woocommerce form .password-input{display:block;position:relative;width:100%}
+body.woocommerce-account .woocommerce form .show-password-input{position:absolute;top:50%;right:12px;transform:translateY(-50%);margin:0;padding:6px;background:transparent;border:0;cursor:pointer}
+body.woocommerce-account .woocommerce form .woocommerce-form-row em,body.woocommerce-account .woocommerce form .form-row em{display:block;margin-top:6px;color:var(--mc-m);font-size:13px;font-style:normal}
+body.woocommerce-account .woocommerce fieldset{margin:8px 0 18px;padding:20px 22px 6px;border:1px solid var(--mc-l);border-radius:18px;background:var(--mc-c)}
+body.woocommerce-account .woocommerce fieldset legend{padding:0 8px;font-size:15px;font-weight:800;color:var(--mc-t)}
+body.woocommerce-account .select2-container .select2-selection--single{display:flex;align-items:center;height:48px;margin:0;padding:0;border:1px solid var(--mc-l2);border-radius:12px;background:#fff}
+body.woocommerce-account .select2-container .select2-selection--single .select2-selection__rendered{flex:1;margin:0;padding:0 40px 0 14px;line-height:1.4;font-size:16px;color:var(--mc-t)}
+body.woocommerce-account .select2-container .select2-selection--single .select2-selection__arrow{top:50%;right:10px;height:24px;transform:translateY(-50%)}
+body.woocommerce-account .select2-container--focus .select2-selection--single,body.woocommerce-account .select2-container--open .select2-selection--single{border-color:var(--mc-v)}
+body.woocommerce-account form.edit-account{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px}
+body.woocommerce-account form.edit-account > *{grid-column:1/-1}
+body.woocommerce-account form.edit-account > .form-row-first,body.woocommerce-account form.edit-account > .form-row-last{grid-column:auto}
+body.woocommerce-account form.edit-account > .clear{display:none}
+body.woocommerce-account .woocommerce-address-fields__field-wrapper{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px}
+body.woocommerce-account .woocommerce-address-fields__field-wrapper > *{grid-column:1/-1}
+body.woocommerce-account .woocommerce-address-fields__field-wrapper > .form-row-first,body.woocommerce-account .woocommerce-address-fields__field-wrapper > .form-row-last{grid-column:auto}
+body.woocommerce-account .woocommerce-address-fields__field-wrapper::before,body.woocommerce-account .woocommerce-address-fields__field-wrapper::after{content:none}
+body.woocommerce-account .woocommerce .button,body.woocommerce-account .woocommerce button.button,body.woocommerce-account .woocommerce a.button,body.woocommerce-account .woocommerce input.button,body.woocommerce-account .mt-f .mt-f-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 20px;border:0;border-radius:12px;background:var(--mc-v);color:#fff;font:inherit;font-size:15px;font-weight:700;line-height:1.2;text-decoration:none;text-transform:none;letter-spacing:0;cursor:pointer;transition:background .15s,box-shadow .15s,transform .05s}
+body.woocommerce-account .woocommerce .button:hover,body.woocommerce-account .woocommerce button.button:hover,body.woocommerce-account .woocommerce a.button:hover,body.woocommerce-account .mt-f .mt-f-btn:hover{background:var(--mc-v2);color:#fff;box-shadow:0 6px 16px color-mix(in srgb,var(--mc-v) 22%,transparent)}
+body.woocommerce-account .woocommerce .button:active,body.woocommerce-account .mt-f .mt-f-btn:active{transform:translateY(1px)}
+body.woocommerce-account .mt-f .mt-f-btn .mc-svg{width:18px;height:18px}
+body.woocommerce-account .mt-f .mt-f-btn.sec{background:#fff;color:var(--mc-v);box-shadow:inset 0 0 0 1px var(--mc-v)}
+body.woocommerce-account .mt-f .mt-f-btn.sec:hover{background:var(--mc-v3);color:var(--mc-v2)}
+body.woocommerce-account .mt-f .mt-f-btn:disabled{opacity:.65;cursor:progress;box-shadow:none}
+
+/* Tablas de WooCommerce */
+body.woocommerce-account .woocommerce table.shop_table{width:100%;margin:0 0 20px;border:1px solid var(--mc-l);border-radius:16px;border-collapse:separate;border-spacing:0;overflow:hidden;font-size:15px}
+body.woocommerce-account .woocommerce table.shop_table thead th{padding:12px 16px;border:0;background:var(--mc-c);color:var(--mc-m);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:left}
+body.woocommerce-account .woocommerce table.shop_table td,body.woocommerce-account .woocommerce table.shop_table tbody th,body.woocommerce-account .woocommerce table.shop_table tfoot th,body.woocommerce-account .woocommerce table.shop_table tfoot td{padding:14px 16px;border:0;border-top:1px solid var(--mc-l);vertical-align:middle;text-align:left}
+body.woocommerce-account .woocommerce table.shop_table tfoot th{font-weight:700}
+body.woocommerce-account .woocommerce table.shop_table tbody tr:hover > *{background:#FFFCF7}
+body.woocommerce-account .woocommerce-orders-table__cell-order-number a{color:var(--mc-v);font-weight:800;text-decoration:none}
+body.woocommerce-account .woocommerce-orders-table__cell-order-status{font-weight:700;white-space:nowrap}
+body.woocommerce-account .woocommerce-orders-table__row--status-on-hold .woocommerce-orders-table__cell-order-status{color:#B8641A}
+body.woocommerce-account .woocommerce-orders-table__row--status-processing .woocommerce-orders-table__cell-order-status{color:#1D5F99}
+body.woocommerce-account .woocommerce-orders-table__row--status-completed .woocommerce-orders-table__cell-order-status{color:var(--mc-v)}
+body.woocommerce-account .woocommerce-orders-table__row--status-cancelled .woocommerce-orders-table__cell-order-status,body.woocommerce-account .woocommerce-orders-table__row--status-failed .woocommerce-orders-table__cell-order-status{color:#B3261E}
+body.woocommerce-account .woocommerce-orders-table .button{min-height:36px;padding:8px 14px;font-size:14px}
+body.woocommerce-account .woocommerce-MyAccount-content mark{padding:1px 8px;border-radius:8px;background:var(--mc-c2);color:var(--mc-t);font-weight:700}
+body.woocommerce-account .woocommerce-MyAccount-content mark.order-status{background:var(--mc-n2);color:var(--mc-n3)}
+body.woocommerce-account .woocommerce-MyAccount-content address{margin:0;padding:18px 20px;border:1px solid var(--mc-l);border-radius:16px;background:var(--mc-c);font-style:normal;line-height:1.7}
+body.woocommerce-account .woocommerce-MyAccount-content .woocommerce-Address{float:none;width:auto;max-width:none;margin:18px 0 0;padding:0}
+body.woocommerce-account .woocommerce-Addresses{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+body.woocommerce-account .woocommerce-Addresses::before,body.woocommerce-account .woocommerce-Addresses::after{content:none}
+body.woocommerce-account .woocommerce-Address-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px}
+body.woocommerce-account .woocommerce-Address-title::before,body.woocommerce-account .woocommerce-Address-title::after{content:none}
+body.woocommerce-account .woocommerce-MyAccount-content .woocommerce-Address-title h2{margin:0;font-size:18px;font-weight:700}
+body.woocommerce-account .woocommerce-Address-title a.edit{float:none;display:inline-flex;align-items:center;padding:8px 14px;border:1px solid var(--mc-l2);border-radius:10px;background:#fff;color:var(--mc-v);font-size:14px;font-weight:700;text-decoration:none}
+body.woocommerce-account .woocommerce-Address-title a.edit:hover{border-color:var(--mc-v);background:var(--mc-v3)}
+
+/* Acceso y registro */
+body.woocommerce-account:not(.logged-in) main .woocommerce{max-width:1040px}
+body.woocommerce-account .mc-intro{max-width:640px;margin:0 auto 28px;text-align:center}
+body.woocommerce-account .mc-intro .mc-kicker{color:var(--mc-v)}
+body.woocommerce-account .mc-intro h2{margin:6px 0 8px;font-size:clamp(28px,3.4vw,38px);font-weight:800;letter-spacing:-.01em;line-height:1.15}
+body.woocommerce-account .mc-intro p{margin:0;color:var(--mc-m);font-size:17px}
+body.woocommerce-account #customer_login{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:0;float:none;width:auto}
+body.woocommerce-account #customer_login::before,body.woocommerce-account #customer_login::after{content:none}
+body.woocommerce-account #customer_login > div{float:none;width:auto;max-width:none;margin:0;padding:32px;background:#fff;border:1px solid var(--mc-l);border-radius:24px;box-shadow:var(--mc-sombra)}
+body.woocommerce-account #customer_login h2{position:relative;display:flex;align-items:center;gap:14px;margin:0 0 22px;font-size:24px;font-weight:700;line-height:1.2}
+body.woocommerce-account #customer_login h2::before{content:"";flex:none;width:46px;height:46px;border-radius:14px;background:var(--mc-v3)}
+body.woocommerce-account #customer_login h2::after{content:"";position:absolute;left:12px;top:50%;width:22px;height:22px;margin-top:-11px;background:var(--mc-v);-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%228%22%20r%3D%224%22%2F%3E%3Cpath%20d%3D%22M4%2021c1.5-4%204.5-6%208-6s6.5%202%208%206%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%228%22%20r%3D%224%22%2F%3E%3Cpath%20d%3D%22M4%2021c1.5-4%204.5-6%208-6s6.5%202%208%206%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat}
+body.woocommerce-account #customer_login .u-column2 h2::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%228%22%20r%3D%224%22%2F%3E%3Cpath%20d%3D%22M3%2021c1.3-3.8%204-6%207-6%201.7%200%203.2.6%204.5%201.7%22%2F%3E%3Cpath%20d%3D%22M19%2015v6M16%2018h6%22%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%228%22%20r%3D%224%22%2F%3E%3Cpath%20d%3D%22M3%2021c1.3-3.8%204-6%207-6%201.7%200%203.2.6%204.5%201.7%22%2F%3E%3Cpath%20d%3D%22M19%2015v6M16%2018h6%22%2F%3E%3C%2Fsvg%3E")}
+body.woocommerce-account #customer_login form{margin:0;padding:0;border:0}
+body.woocommerce-account .woocommerce-form-login__submit,body.woocommerce-account .woocommerce-form-register__submit{width:100%;margin-top:10px;min-height:50px}
+body.woocommerce-account .woocommerce-LostPassword{margin:14px 0 0;text-align:center}
+body.woocommerce-account .woocommerce-LostPassword a,body.woocommerce-account .woocommerce-privacy-policy-text a{color:var(--mc-v);font-weight:700}
+body.woocommerce-account .woocommerce-privacy-policy-text p{margin:0 0 14px;color:var(--mc-m);font-size:13px;line-height:1.5}
+body.woocommerce-account .mc-invitado{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:24px;padding:20px 24px;border:1px solid color-mix(in srgb,var(--mc-v) 22%,#fff);border-radius:20px;background:var(--mc-v3)}
+body.woocommerce-account .mc-invitado .mc-icono{background:#fff}
+body.woocommerce-account .mc-invitado > div{flex:1;min-width:220px;display:flex;flex-direction:column;gap:2px}
+body.woocommerce-account .mc-invitado strong{font-size:17px}
+body.woocommerce-account .mc-invitado > div span{color:var(--mc-m);font-size:15px}
+body.woocommerce-account .woocommerce-ResetPassword,body.woocommerce-account form.lost_reset_password{max-width:560px;margin:0 auto;padding:32px;background:#fff;border:1px solid var(--mc-l);border-radius:24px;box-shadow:var(--mc-sombra)}
+
+/* Mi tienda en el sitio */
+body.woocommerce-account .mt-f [hidden]{display:none!important}
+body.woocommerce-account .mt-f-hero-acciones{display:flex;flex-wrap:wrap;gap:10px}
+body.woocommerce-account .mt-f-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 22px}
+body.woocommerce-account .mt-f-cifra{display:flex;gap:14px;align-items:center;padding:16px 18px;border:1px solid var(--mc-l);border-radius:18px;background:#fff}
+body.woocommerce-account .mt-f-cifra > div{display:flex;flex-direction:column;min-width:0}
+body.woocommerce-account .mt-f-cifra b{font-size:24px;font-weight:800;line-height:1.15;color:var(--mc-t)}
+body.woocommerce-account .mt-f-cifra > div > span{color:var(--mc-m);font-size:13px;line-height:1.35}
+body.woocommerce-account .mt-f-cifra.alerta{border-color:#F3D3AB;background:#FFFBF5}
+body.woocommerce-account .mt-f-cifra.alerta .mc-icono{background:var(--mc-n2);color:#B8641A}
+body.woocommerce-account .mt-f-cifra.alerta b{color:#B8641A}
+body.woocommerce-account .mt-f-tabs{display:flex;gap:4px;margin:0 0 22px;padding:6px;border:1px solid var(--mc-l);border-radius:16px;background:var(--mc-c);overflow-x:auto;scrollbar-width:none;scroll-margin-top:calc(var(--wp-admin--admin-bar--height,0px) + 16px)}
+body.woocommerce-account .mt-f-tabs::-webkit-scrollbar{display:none}
+body.woocommerce-account .mt-f-tabs a{flex:1 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:12px;color:var(--mc-m);font-size:15px;font-weight:700;line-height:1.2;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,box-shadow .15s}
+body.woocommerce-account .mt-f-tabs a .mc-svg{width:18px;height:18px}
+body.woocommerce-account .mt-f-tabs a:hover{color:var(--mc-t);background:rgba(255,255,255,.7)}
+body.woocommerce-account .mt-f-tabs a.activa{background:#fff;color:var(--mc-v);box-shadow:0 1px 2px rgba(43,33,24,.08),0 6px 14px rgba(43,33,24,.07)}
+body.woocommerce-account .mt-f-cuenta{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 7px;border-radius:999px;background:var(--mc-n);color:#fff;font-size:12px;font-style:normal;font-weight:800}
+body.woocommerce-account .mt-f-cab{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:flex-end;justify-content:space-between;margin:0 0 16px}
+body.woocommerce-account .mt-f-cab > div{flex:1;min-width:240px}
+body.woocommerce-account .woocommerce-MyAccount-content .mt-f-cab h3{margin:0 0 4px;font-size:20px}
+body.woocommerce-account .mt-f-cab p{margin:0;color:var(--mc-m);font-size:15px;line-height:1.5}
+body.woocommerce-account .mt-f-enlace{display:inline-flex;align-items:center;gap:6px;color:var(--mc-v);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+body.woocommerce-account .mt-f-enlace .mc-svg{width:16px;height:16px;transition:transform .15s}
+body.woocommerce-account .mt-f-enlace:hover .mc-svg{transform:translateX(3px)}
+body.woocommerce-account .mt-f-tabla{width:100%;margin:0;border:1px solid var(--mc-l);border-radius:16px;border-collapse:separate;border-spacing:0;overflow:hidden;font-size:15px}
+body.woocommerce-account .mt-f-tabla th{padding:12px 16px;background:var(--mc-c);color:var(--mc-m);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:left;border:0}
+body.woocommerce-account .mt-f-tabla td{padding:14px 16px;border:0;border-top:1px solid var(--mc-l);vertical-align:middle}
+body.woocommerce-account .mt-f-tabla tbody tr:hover td{background:#FFFCF7}
+body.woocommerce-account .mt-f-tabla small{display:block;margin-top:2px;color:var(--mc-m);font-size:13px}
+body.woocommerce-account .mt-f-num{font-weight:800;white-space:nowrap}
+body.woocommerce-account .mt-f-tabla form{margin:0}
+body.woocommerce-account .mt-f-accion{text-align:right;white-space:nowrap}
+body.woocommerce-account .mt-f .mt-f-accion .mt-f-btn{min-height:38px;padding:8px 14px;font-size:14px}
+body.woocommerce-account .mt-f-detalle{color:var(--mc-m);font-size:14px;font-weight:700;text-decoration:none}
+body.woocommerce-account .mt-f-detalle:hover{color:var(--mc-v)}
+body.woocommerce-account .mt-f-oculto{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body.woocommerce-account .mt-f-oculto:focus-visible + label{outline:3px solid color-mix(in srgb,var(--mc-v) 45%,transparent);outline-offset:2px}
+body.woocommerce-account .mt-f-productos{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+body.woocommerce-account .mt-f-producto{position:relative;display:flex;flex-direction:column;margin:0;border:1px solid var(--mc-l);border-radius:18px;background:#fff;overflow:hidden;transition:box-shadow .15s,border-color .15s;scroll-margin-top:120px}
+body.woocommerce-account .mt-f-producto:hover{box-shadow:0 14px 30px rgba(43,33,24,.08)}
+body.woocommerce-account .mt-f-producto.resaltado{border-color:var(--mc-n);box-shadow:0 0 0 4px rgba(224,138,43,.22)}
+body.woocommerce-account .mt-f-producto.cambiado{border-color:var(--mc-v)}
+body.woocommerce-account .mt-f-producto.cambiado .mt-f-acciones .mt-f-btn{box-shadow:0 0 0 4px color-mix(in srgb,var(--mc-v) 20%,transparent)}
+body.woocommerce-account .mt-f-foto{position:relative;display:block;margin:0;aspect-ratio:1/1;background:var(--mc-c);cursor:pointer;overflow:hidden}
+body.woocommerce-account .mt-f-foto img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}
+body.woocommerce-account .mt-f-foto:hover img{transform:scale(1.04)}
+body.woocommerce-account .mt-f-foto-accion{position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:rgba(43,33,24,.74);color:#fff;font-size:13px;font-weight:700;backdrop-filter:blur(4px);transition:background .15s}
+body.woocommerce-account .mt-f-foto-accion .mc-svg{width:16px;height:16px}
+body.woocommerce-account .mt-f-foto:hover .mt-f-foto-accion{background:var(--mc-v)}
+body.woocommerce-account .mt-f-sello{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;background:#fff;color:#8C2A1C;font-size:12px;font-style:normal;font-weight:800;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+body.woocommerce-account .mt-f-producto.agotado .mt-f-foto img{filter:grayscale(1);opacity:.6}
+body.woocommerce-account .mt-f-cuerpo{display:flex;flex:1;flex-direction:column;gap:12px;padding:16px}
+body.woocommerce-account .mt-f-campo{margin:0}
+body.woocommerce-account .mt-f-cuerpo .mt-f-campo label{margin-bottom:4px;color:var(--mc-m);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+body.woocommerce-account .mt-f-cuerpo input[name=nombre]{font-weight:700}
+body.woocommerce-account .mt-f-precio{display:flex;align-items:stretch;width:100%;border:1px solid var(--mc-l2);border-radius:12px;background:#fff;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+body.woocommerce-account .mt-f-precio:focus-within{border-color:var(--mc-v);box-shadow:0 0 0 3px color-mix(in srgb,var(--mc-v) 18%,transparent)}
+body.woocommerce-account .mt-f-precio > span{display:grid;place-items:center;padding:0 14px;background:var(--mc-c);border-right:1px solid var(--mc-l);color:var(--mc-m);font-weight:800}
+body.woocommerce-account .mt-f .mt-f-precio input[type=number]{border:0;border-radius:0;box-shadow:none;font-weight:700}
+body.woocommerce-account .mt-f-switch{display:flex;align-items:center;gap:10px;margin:0;font-size:14px;font-weight:600;cursor:pointer}
+body.woocommerce-account .mt-f-switch input{position:relative;flex:none;width:42px;height:24px;margin:0;border-radius:999px;background:var(--mc-l2);-webkit-appearance:none;appearance:none;cursor:pointer;transition:background .15s}
+body.woocommerce-account .mt-f-switch input::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .15s}
+body.woocommerce-account .mt-f-switch input:checked{background:var(--mc-v)}
+body.woocommerce-account .mt-f-switch input:checked::after{transform:translateX(18px)}
+body.woocommerce-account .mt-f-switch input:focus-visible{outline:3px solid color-mix(in srgb,var(--mc-v) 35%,transparent);outline-offset:2px}
+body.woocommerce-account .mt-f-mas{border-top:1px dashed var(--mc-l);padding-top:10px}
+body.woocommerce-account .mt-f-mas summary{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--mc-v);font-size:14px;font-weight:700;list-style:none;cursor:pointer}
+body.woocommerce-account .mt-f-mas summary::-webkit-details-marker{display:none}
+body.woocommerce-account .mt-f-mas summary::after{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;transition:transform .15s}
+body.woocommerce-account .mt-f-mas[open] summary::after{transform:rotate(180deg)}
+body.woocommerce-account .mt-f-mas[open]{display:flex;flex-direction:column;gap:10px}
+body.woocommerce-account .mt-f-mas .mt-f-campo:first-of-type{margin-top:10px}
+body.woocommerce-account .mt-f-acciones{display:flex;align-items:center;gap:10px;margin-top:auto}
+body.woocommerce-account .mt-f-acciones .mt-f-btn{flex:1}
+body.woocommerce-account .mt-f-ver{display:inline-flex;align-items:center;gap:4px;padding:10px 12px;border-radius:12px;color:var(--mc-m);font-size:14px;font-weight:700;text-decoration:none}
+body.woocommerce-account .mt-f-ver .mc-svg{width:14px;height:14px}
+body.woocommerce-account .mt-f-ver:hover{background:var(--mc-c);color:var(--mc-v)}
+body.woocommerce-account .mt-f-nuevo{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:start;margin:0}
+body.woocommerce-account .mt-f-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+body.woocommerce-account .mt-f-campos .ancho{grid-column:1/-1}
+body.woocommerce-account .mt-f-lado{display:flex;flex-direction:column}
+body.woocommerce-account .mt-f-zona{position:relative;display:grid;place-items:center;margin:0;aspect-ratio:1/1;padding:18px;border:2px dashed var(--mc-l2);border-radius:20px;background:var(--mc-c);text-align:center;cursor:pointer;overflow:hidden;transition:border-color .15s,background .15s}
+body.woocommerce-account .mt-f-zona:hover{border-color:var(--mc-v);background:var(--mc-v3)}
+body.woocommerce-account .mt-f-zona img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+body.woocommerce-account .mt-f-zona.baja{aspect-ratio:auto;min-height:150px}
+body.woocommerce-account .mt-f-zona.baja img{object-fit:contain;background:#fff;padding:10px}
+body.woocommerce-account .mt-f-zona.con-foto{border-style:solid;border-color:var(--mc-v)}
+body.woocommerce-account .mt-f-zona.con-foto .mt-f-zona-txt{display:none}
+body.woocommerce-account .mt-f-zona-txt{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--mc-m)}
+body.woocommerce-account .mt-f-zona-txt .mc-svg{width:40px;height:40px;margin-bottom:4px;color:var(--mc-v)}
+body.woocommerce-account .mt-f-zona-txt strong{color:var(--mc-t);font-size:15px}
+body.woocommerce-account .mt-f-zona-txt small{font-size:13px}
+body.woocommerce-account .mt-f-enviar{grid-column:1/-1;display:flex;justify-content:flex-end;gap:12px;padding-top:18px;border-top:1px solid var(--mc-l)}
+body.woocommerce-account .mt-f-enviar .mt-f-btn{min-height:50px;padding:13px 24px;font-size:16px}
+body.woocommerce-account .mt-f-qr{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start}
+body.woocommerce-account .mt-f-qr-vista{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px;border:1px solid var(--mc-l);border-radius:20px;background:var(--mc-c);text-align:center}
+body.woocommerce-account .mt-f-qr-vista img{width:100%;max-width:220px;border:1px solid var(--mc-l);border-radius:14px;background:#fff}
+body.woocommerce-account .mt-f-qr-vista small{color:var(--mc-m);font-size:13px;font-weight:600}
+body.woocommerce-account .mt-f-qr-form{display:flex;flex-direction:column;gap:16px;margin:0}
+body.woocommerce-account .mt-f-qr-form .mt-f-enviar{padding-top:0;border:0;justify-content:flex-start}
+body.woocommerce-account .mt-f-pasos{display:grid;gap:12px;margin:0;padding:0;list-style:none;counter-reset:paso}
+body.woocommerce-account .mt-f-pasos li{display:flex;align-items:flex-start;gap:12px;margin:0;counter-increment:paso;font-size:15px;line-height:1.5}
+body.woocommerce-account .mt-f-pasos li::before{content:counter(paso);flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mc-v);color:#fff;font-size:13px;font-weight:800}
+body.woocommerce-account .mt-f-pie{margin:26px 0 0;padding-top:18px;border-top:1px solid var(--mc-l);color:var(--mc-m);font-size:14px}
+body.woocommerce-account .mt-f-pie a{color:var(--mc-v);font-weight:700}
+
+/* Tableta y celular */
+@media (max-width:960px){
+body.woocommerce-account.logged-in main .woocommerce{grid-template-columns:minmax(0,1fr);gap:16px}
+body.woocommerce-account .mc-lateral{position:static}
+body.woocommerce-account .mc-perfil{padding:14px 16px}
+body.woocommerce-account .woocommerce-MyAccount-navigation ul{flex-direction:row;overflow-x:auto;padding:6px;scrollbar-width:none}
+body.woocommerce-account .woocommerce-MyAccount-navigation ul::-webkit-scrollbar{display:none}
+body.woocommerce-account .woocommerce-MyAccount-navigation li{flex:none}
+body.woocommerce-account .woocommerce-MyAccount-navigation li a{padding:10px 14px;white-space:nowrap}
+body.woocommerce-account .woocommerce-MyAccount-navigation-link--customer-logout{margin:0;padding:0;border:0}
+body.woocommerce-account .woocommerce-MyAccount-content{padding:24px;border-radius:20px}
+body.woocommerce-account .mt-f-nuevo,body.woocommerce-account .mt-f-qr{grid-template-columns:minmax(0,1fr)}
+body.woocommerce-account .mt-f-zona{aspect-ratio:auto;min-height:200px}
+body.woocommerce-account .mt-f-qr-vista img{max-width:180px}
+body.woocommerce-account #customer_login{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+body.woocommerce-account .mt-f-tabla,body.woocommerce-account .mt-f-tabla tbody,body.woocommerce-account .mt-f-tabla tr,body.woocommerce-account .mt-f-tabla td{display:block;width:100%}
+body.woocommerce-account .mt-f-tabla thead{display:none}
+body.woocommerce-account .mt-f-tabla tr{padding:8px 0;border-top:1px solid var(--mc-l)}
+body.woocommerce-account .mt-f-tabla tbody tr:first-child{border-top:0}
+body.woocommerce-account .mt-f-tabla tbody tr:hover td{background:transparent}
+body.woocommerce-account .mt-f-tabla td{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 16px;border:0;text-align:right}
+body.woocommerce-account .mt-f-tabla td::before{content:attr(data-label);color:var(--mc-m);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;text-align:left}
+body.woocommerce-account .mt-f-tabla td small{margin-top:0}
+body.woocommerce-account .mt-f-tabla td > strong + small,body.woocommerce-account .mt-f-tabla td > small{display:inline;margin-left:6px}
+body.woocommerce-account .mt-f-accion{justify-content:flex-end}
+body.woocommerce-account .mt-f-accion::before{display:none}
+body.woocommerce-account .mt-f .mt-f-accion form,body.woocommerce-account .mt-f .mt-f-accion .mt-f-btn{width:100%}
+}
+@media (max-width:600px){
+body.woocommerce-account .woocommerce-MyAccount-content{padding:18px 16px}
+body.woocommerce-account .mc-hero{padding:24px 20px}
+body.woocommerce-account .mc-hero .mc-btn,body.woocommerce-account .mt-f-hero-acciones,body.woocommerce-account .mt-f-hero-acciones .mc-btn{width:100%}
+body.woocommerce-account .mt-f-cifras{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+body.woocommerce-account .mt-f-cifra{flex-direction:column;align-items:flex-start;gap:10px;padding:14px}
+body.woocommerce-account .mt-f-cifra .mc-icono{width:38px;height:38px;border-radius:12px}
+body.woocommerce-account .mt-f-cifra b{font-size:20px}
+body.woocommerce-account .mt-f-tabs a{flex:none;padding:10px 12px}
+body.woocommerce-account .mt-f-campos,body.woocommerce-account form.edit-account,body.woocommerce-account .woocommerce-address-fields__field-wrapper{grid-template-columns:minmax(0,1fr)}
+body.woocommerce-account .mt-f-productos{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+body.woocommerce-account .mt-f-cuerpo{padding:12px;gap:10px}
+body.woocommerce-account .mt-f-enviar .mt-f-btn{width:100%}
+body.woocommerce-account .mc-pedido .mc-btn{width:100%}
+body.woocommerce-account #customer_login > div{padding:22px 18px;border-radius:20px}
+}
+
+/* Resumen: pedidos en curso */
+body.woocommerce-account .mc-hero-chip{display:inline-flex;margin-top:12px;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:700}
+
+/* Mi tienda › Personalizar */
+body.woocommerce-account .mt-f-ajustes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+body.woocommerce-account .mt-f-tarjeta{display:flex;flex-direction:column;gap:14px;margin:0;padding:22px;border:1px solid var(--mc-l);border-radius:18px;background:#fff}
+body.woocommerce-account .mt-f-tarjeta.ancha{grid-column:1/-1}
+body.woocommerce-account .mt-f-tarjeta-cab{display:flex;gap:14px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--mc-l)}
+body.woocommerce-account .woocommerce-MyAccount-content .mt-f-tarjeta-cab h4{margin:2px 0;font-size:17px;font-weight:800;line-height:1.3;color:var(--mc-t)}
+body.woocommerce-account .mt-f-tarjeta-cab p{margin:0;color:var(--mc-m);font-size:14px;line-height:1.45}
+body.woocommerce-account .mt-f-tarjeta .mt-f-enviar{margin-top:4px;padding-top:14px;flex-wrap:wrap;align-items:center;justify-content:flex-start}
+body.woocommerce-account .mt-f-nota{display:block;margin-top:6px;color:var(--mc-m);font-size:13px;line-height:1.45}
+body.woocommerce-account .mt-f-logo{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+body.woocommerce-account .mt-f-logo-zona{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:6px 16px 6px 6px;border:1px dashed var(--mc-l2);border-radius:14px;background:var(--mc-c);color:var(--mc-t);font-size:14px;font-weight:700;cursor:pointer}
+body.woocommerce-account .mt-f-logo-zona img{width:48px;height:48px;border-radius:10px;object-fit:contain;background:#fff}
+body.woocommerce-account .mt-f-logo-zona span{display:inline-flex;align-items:center;gap:8px;padding-left:8px}
+body.woocommerce-account .mt-f-logo-zona:hover{border-color:var(--mc-v);color:var(--mc-v)}
+body.woocommerce-account .mt-f-check{display:inline-flex;align-items:center;gap:8px;color:var(--mc-m);font-size:14px;cursor:pointer}
+body.woocommerce-account .mt-f-check input{width:18px;height:18px;accent-color:var(--mc-v)}
+body.woocommerce-account .mt-f-colores{display:flex;flex-wrap:wrap;gap:8px 4px}
+body.woocommerce-account .mt-f-color{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;width:64px;padding-top:4px;cursor:pointer}
+body.woocommerce-account .mt-f-color input[type=radio]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+body.woocommerce-account .mt-f-muestra{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--muestra);color:#fff;box-shadow:0 0 0 3px #fff,0 0 0 4px var(--mc-l2);transition:box-shadow .15s,transform .15s}
+body.woocommerce-account .mt-f-color small{color:var(--mc-m);font-size:12px;font-weight:700;line-height:1.2;text-align:center}
+body.woocommerce-account .mt-f-color:hover .mt-f-muestra{transform:scale(1.06)}
+body.woocommerce-account .mt-f-color input:checked + .mt-f-muestra{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--muestra)}
+body.woocommerce-account .mt-f-color input:checked ~ small{color:var(--mc-t)}
+body.woocommerce-account .mt-f-color input:focus-visible + .mt-f-muestra{outline:3px solid var(--mc-t);outline-offset:6px}
+body.woocommerce-account .mt-f-lapiz .mt-f-muestra{background:conic-gradient(from 90deg,#EF4444,#F59E0B,#EAB308,#22C55E,#06B6D4,#3B82F6,#8B5CF6,#EC4899,#EF4444)}
+body.woocommerce-account .mt-f-lapiz input:checked + .mt-f-muestra{background:var(--muestra)}
+body.woocommerce-account .mt-f-lapiz .mc-svg{width:18px;height:18px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.45))}
+body.woocommerce-account .mt-f-selector{position:absolute;top:4px;left:10px;width:44px;height:44px;margin:0;padding:0;border:0;border-radius:50%;opacity:0;cursor:pointer}
+body.woocommerce-account .mt-f-fondos .mt-f-muestra{box-shadow:0 0 0 3px #fff,0 0 0 4px var(--mc-l2),inset 0 0 0 1px rgba(43,33,24,.18)}
+body.woocommerce-account .mt-f-fondos input:checked + .mt-f-muestra{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--mc-v),inset 0 0 0 1px rgba(43,33,24,.18)}
+body.woocommerce-account .mt-f-fondos .mt-f-lapiz .mt-f-muestra{background:conic-gradient(from 90deg,#FDE2E2,#FEF3C7,#DCFCE7,#DBEAFE,#EDE9FE,#FCE7F3,#FDE2E2);color:#2B2118}
+body.woocommerce-account .mt-f-fondos .mt-f-lapiz input:checked + .mt-f-muestra{background:var(--muestra)}
+body.woocommerce-account .mt-f-fondos .mt-f-lapiz .mc-svg{filter:none}
+body.woocommerce-account .mt-f-tarjeta .mt-f-etiqueta{margin:6px 0 -4px}
+body.woocommerce-account .mt-f-muestra-hero{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:14px;background:linear-gradient(125deg,var(--mc-g1) 0%,var(--mc-v) 55%,var(--mc-g2) 100%);color:#fff}
+body.woocommerce-account .mt-f-muestra-hero small{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+body.woocommerce-account .mt-f-muestra-hero strong{display:block;font-size:18px;font-weight:800;line-height:1.2}
+body.woocommerce-account .mt-f-muestra-hero > span{flex:none;padding:8px 14px;border-radius:10px;background:#fff;color:var(--mc-v);font-size:13px;font-weight:800}
+body.woocommerce-account .mt-f-paginas{display:flex;flex-direction:column;gap:10px}
+body.woocommerce-account .mt-f-pagina{border:1px solid var(--mc-l);border-radius:14px;background:var(--mc-c)}
+body.woocommerce-account .mt-f-pagina[open]{background:#fff;box-shadow:var(--mc-sombra)}
+body.woocommerce-account .mt-f-pagina summary{display:flex;align-items:center;gap:12px;padding:14px 16px;font-size:15px;list-style:none;cursor:pointer}
+body.woocommerce-account .mt-f-pagina summary::-webkit-details-marker{display:none}
+body.woocommerce-account .mt-f-pagina summary strong{flex:1}
+body.woocommerce-account .mt-f-pagina summary::after{content:"";flex:none;width:18px;height:18px;background:var(--mc-m);-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;transition:transform .15s}
+body.woocommerce-account .mt-f-pagina[open] summary::after{transform:rotate(180deg)}
+body.woocommerce-account .mt-f-pagina > :not(summary){margin:0 16px 14px}
+body.woocommerce-account .mt-f .mt-f-pagina textarea{min-height:280px;font-size:15px;line-height:1.6}
+body.woocommerce-account .mt-f-pagina-acciones{display:flex;flex-wrap:wrap;gap:4px 12px}
+@media (max-width:1200px){
+body.woocommerce-account .mt-f-ajustes{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+body.woocommerce-account .mt-f-tarjeta{padding:18px 16px}
+body.woocommerce-account .mt-f-color{width:58px}
+body.woocommerce-account .mt-f-selector{left:7px}
+}
