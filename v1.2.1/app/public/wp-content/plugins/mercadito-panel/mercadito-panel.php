@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Mercadito Panel Rápido
-Description: Panel «Mi tienda» para la comunidad, en el escritorio de WordPress y en «Mi cuenta» del sitio: pedidos, productos, clientes, código QR, personalización de la tienda, WhatsApp y redes sociales. Incluye números de pedido consecutivos.
-Version: 1.6.1
+Description: Panel «Mi tienda» para la comunidad, en el escritorio de WordPress y en «Mi cuenta» del sitio: pedidos, productos, clientes, código QR, personalización de la tienda, WhatsApp y redes sociales. Incluye números de pedido consecutivos, compra con 7 datos y envío del comprobante de pago por WhatsApp.
+Version: 1.7.0
 Author: Grupo 3 · Proyecto de Vinculación UIDE
 Requires at least: 6.5
 Requires PHP: 7.4
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('MERCADITO_VERSION', '1.6.1');
+define('MERCADITO_VERSION', '1.7.0');
 
 // Se busca el patrón sincronizado «Código QR de pago»
 function mercadito_qr_pattern_id() {
@@ -106,8 +106,33 @@ add_filter('render_block', function ($html, $block) {
     if (!$pedido || 'cheque' !== $pedido->get_payment_method()) {
         return '';
     }
-    return $html;
+    return mercadito_qr_con_comprobante($html, $pedido);
 }, 10, 2);
+
+// Tarjeta del QR en «Pedido recibido»: número, total a pagar y botón para enviar el comprobante por WhatsApp
+function mercadito_qr_con_comprobante($html, $pedido) {
+    // El filtro puede pasar dos veces por el mismo bloque: se agrega una sola vez
+    if (false !== strpos($html, 'mc-pago-datos')) {
+        return $html;
+    }
+    $numero = $pedido->get_order_number();
+    $total = html_entity_decode(wp_strip_all_tags(wc_price($pedido->get_total(), array('currency' => $pedido->get_currency()))), ENT_QUOTES, 'UTF-8');
+    $extra = sprintf('<p class="mc-pago-datos"><span>Pedido N.º <b>%s</b></span><span>Total a pagar <b>%s</b></span></p>', esc_html($numero), esc_html($total));
+    $whatsapp = preg_replace('/\D+/', '', mercadito_opcion('whatsapp'));
+    if ('' !== $whatsapp) {
+        // Se abre WhatsApp con el mensaje ya escrito; la captura del pago la adjunta el cliente
+        $mensaje = sprintf('Hola, te envío el comprobante de pago de mi pedido N.º %s por %s.', $numero, $total);
+        $extra .= sprintf(
+            '<a class="mc-pago-wa" href="%s" target="_blank" rel="noopener">%sEnviar comprobante por WhatsApp</a><small class="mc-pago-nota">Se abre WhatsApp con tu número de pedido; ahí adjuntas la captura del pago.</small>',
+            esc_url('https://wa.me/' . $whatsapp . '?text=' . rawurlencode($mensaje)),
+            mercadito_icono('chat')
+        );
+    }
+    // Se agrega dentro del recuadro del patrón, antes de su último cierre
+    $pos = strrpos($html, '</div>');
+    $html = false === $pos ? $html . $extra : substr_replace($html, $extra, $pos, 0);
+    return '<div class="mc-pago">' . $html . '</div>';
+}
 
 add_action('admin_enqueue_scripts', function ($hook) {
     if ('toplevel_page_mercadito-tienda' === $hook) {
@@ -345,6 +370,23 @@ function mercadito_render_tienda() {
     echo '</div></div></div>';
 }
 
+// Finalizar compra con 7 datos: correo, nombre, apellido, teléfono, provincia, ciudad y dirección.
+// Se ocultan empresa, apartamento y código postal; el país (solo Ecuador) se oculta en assets/compra.css
+add_filter('woocommerce_get_country_locale', function ($locale) {
+    $locale['EC'] = array_replace_recursive(isset($locale['EC']) ? $locale['EC'] : array(), array(
+        'first_name' => array('priority' => 10),
+        'last_name'  => array('priority' => 20),
+        'phone'      => array('required' => true, 'priority' => 30),
+        'state'      => array('label' => 'Provincia', 'required' => true, 'priority' => 40),
+        'city'       => array('priority' => 50),
+        'address_1'  => array('priority' => 60),
+        'company'    => array('required' => false, 'hidden' => true),
+        'address_2'  => array('required' => false, 'hidden' => true),
+        'postcode'   => array('required' => false, 'hidden' => true),
+    ));
+    return $locale;
+});
+
 // Numeración consecutiva de pedidos (1, 2, 3...) sin tocar el ID interno
 function mercadito_numero_estados() {
     return array_values(array_diff(array_keys(wc_get_order_statuses()), array('wc-checkout-draft')));
@@ -545,6 +587,10 @@ add_action('wp_enqueue_scripts', function () {
     // Colores del panel como variables CSS para todas las hojas del plugin
     wp_enqueue_style('mercadito-sitio', plugins_url('assets/sitio.css', __FILE__), array(), MERCADITO_VERSION);
     wp_add_inline_style('mercadito-sitio', vsprintf(':root{--mc-v:%s;--mc-v2:%s;--mc-v3:%s;--mc-g1:%s;--mc-g2:%s}', mercadito_paleta()));
+    // Finalizar compra y Pedido recibido
+    if (function_exists('is_checkout') && is_checkout()) {
+        wp_enqueue_style('mercadito-compra', plugins_url('assets/compra.css', __FILE__), array('mercadito-sitio'), MERCADITO_VERSION);
+    }
     if (function_exists('is_account_page') && is_account_page()) {
         wp_enqueue_style('mercadito-cuenta', plugins_url('assets/cuenta.css', __FILE__), array('mercadito-sitio'), MERCADITO_VERSION);
         if (mercadito_es_encargado()) {
@@ -850,10 +896,14 @@ add_filter('render_block_core/social-links', function ($html) {
     return false === strpos($html, '<li') ? '' : $html;
 });
 
-// Botón flotante de WhatsApp (no se muestra mientras el encargado trabaja en «Mi tienda»)
+// Botón flotante de WhatsApp (no se muestra mientras el encargado trabaja en «Mi tienda» ni junto al QR de pago)
 add_action('wp_footer', function () {
     $enlace = mercadito_enlace_red('whatsapp');
     if ('' === $enlace || (function_exists('is_wc_endpoint_url') && is_wc_endpoint_url('mi-tienda'))) {
+        return;
+    }
+    $pedido = function_exists('is_order_received_page') && is_order_received_page() ? mercadito_pedido_actual() : false;
+    if ($pedido && 'cheque' === $pedido->get_payment_method()) {
         return;
     }
     printf('<a class="mc-wa" href="%s" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">%s<span>¿Dudas? Escríbenos</span></a>', esc_url($enlace), mercadito_icono('chat'));
@@ -982,7 +1032,7 @@ function mercadito_guardar_pie_texto($texto) {
     wp_update_post(wp_slash(array('ID' => $pie->ID, 'post_content' => $contenido)));
 }
 
-// Se guarda cada tarjeta de «Personalizar»
+// Se guarda cada tarjeta de «Personalizar»: 1 nombre y logo, 2 colores, 3 fondo, 4 textos, 5 WhatsApp y redes
 function mercadito_guardar_personalizacion($seccion) {
     if ('tienda' === $seccion) {
         $nombre = isset($_POST['nombre']) ? sanitize_text_field(wp_unslash($_POST['nombre'])) : '';
@@ -1004,10 +1054,7 @@ function mercadito_guardar_personalizacion($seccion) {
         if ($logo) {
             update_option('site_logo', $logo);
         }
-        if (isset($_POST['pie_texto'])) {
-            mercadito_guardar_pie_texto(sanitize_text_field(wp_unslash($_POST['pie_texto'])));
-        }
-        wc_add_notice('¡Listo! Se guardaron el nombre, la frase, el logo y el pie de página.');
+        wc_add_notice('¡Listo! Se guardaron el nombre, la frase y el logo.');
     } elseif ('colores' === $seccion) {
         $color = isset($_POST['color']) ? sanitize_key(wp_unslash($_POST['color'])) : 'verde';
         $hex = isset($_POST['color_hex']) ? sanitize_text_field(wp_unslash($_POST['color_hex'])) : '';
@@ -1017,34 +1064,46 @@ function mercadito_guardar_personalizacion($seccion) {
             $color = 'verde';
         }
         update_option('mercadito_color', $color, false);
-        $estilos = array();
-        $fondo = isset($_POST['fondo']) ? sanitize_key(wp_unslash($_POST['fondo'])) : '';
-        $fondos = mercadito_fondos();
-        $fondo_hex = isset($_POST['fondo_hex']) ? sanitize_text_field(wp_unslash($_POST['fondo_hex'])) : '';
-        if (isset($fondos[$fondo])) {
-            $estilos['color']['background'] = $fondos[$fondo][1];
-        } elseif ('personalizado' === $fondo && preg_match('/^#[0-9a-fA-F]{6}$/', $fondo_hex)) {
-            $estilos['color']['background'] = mercadito_fondo_legible($fondo_hex);
-        }
         // Opcional: el mismo color en los botones y enlaces de toda la tienda
         if (!empty($_POST['botones_tienda'])) {
             $principal = mercadito_paleta();
-            $estilos['elements']['button']['color'] = array('background' => $principal[0], 'text' => '#FFFFFF');
-            $estilos['elements']['link']['color'] = array('text' => $principal[0]);
+            $estilos = array('elements' => array(
+                'button' => array('color' => array('background' => $principal[0], 'text' => '#FFFFFF')),
+                'link'   => array('color' => array('text' => $principal[0])),
+            ));
+            if (!mercadito_guardar_estilos_globales(array('styles' => $estilos))) {
+                wc_add_notice('El color del panel se guardó, pero no se pudo cambiar el de los botones. Cámbialo en Editar el sitio › Estilos.', 'error');
+                return;
+            }
         }
-        if ($estilos && !mercadito_guardar_estilos_globales(array('styles' => $estilos))) {
-            wc_add_notice('El color del panel se guardó, pero no se pudo cambiar el fondo de la tienda. Cámbialo en Editar el sitio › Estilos.', 'error');
+        wc_add_notice('¡Listo! Se guardó el color.');
+    } elseif ('fondo' === $seccion) {
+        $fondo = isset($_POST['fondo']) ? sanitize_key(wp_unslash($_POST['fondo'])) : '';
+        $fondos = mercadito_fondos();
+        $fondo_hex = isset($_POST['fondo_hex']) ? sanitize_text_field(wp_unslash($_POST['fondo_hex'])) : '';
+        $elegido = '';
+        if (isset($fondos[$fondo])) {
+            $elegido = $fondos[$fondo][1];
+        } elseif ('personalizado' === $fondo && preg_match('/^#[0-9a-fA-F]{6}$/', $fondo_hex)) {
+            $elegido = mercadito_fondo_legible($fondo_hex);
+        }
+        if ('' === $elegido || !mercadito_guardar_estilos_globales(array('styles' => array('color' => array('background' => $elegido))))) {
+            wc_add_notice('No se pudo cambiar el fondo de la tienda. Cámbialo en Editar el sitio › Estilos.', 'error');
             return;
         }
-        wc_add_notice('¡Listo! Se guardaron los colores.');
-    } elseif ('panel' === $seccion) {
+        wc_add_notice('¡Listo! Se guardó el fondo de la tienda.');
+    } elseif ('textos' === $seccion) {
         foreach (array('panel_titulo', 'panel_texto', 'acceso_titulo') as $clave) {
             update_option('mercadito_' . $clave, isset($_POST[$clave]) ? sanitize_text_field(wp_unslash($_POST[$clave])) : '', false);
         }
         foreach (array('bienvenida', 'acceso_texto') as $clave) {
             update_option('mercadito_' . $clave, isset($_POST[$clave]) ? sanitize_textarea_field(wp_unslash($_POST[$clave])) : '', false);
         }
-        wc_add_notice('¡Listo! Se guardaron los textos del panel y de Mi cuenta.');
+        if (isset($_POST['pie_texto'])) {
+            mercadito_guardar_pie_texto(sanitize_text_field(wp_unslash($_POST['pie_texto'])));
+        }
+        $paginas = current_user_can('edit_pages') ? mercadito_guardar_paginas() : 0;
+        wc_add_notice('¡Listo! Se guardaron los textos' . ($paginas ? ' (' . mercadito_plural($paginas, 'página actualizada', 'páginas actualizadas') . ')' : '') . '.');
     } elseif ('contacto' === $seccion) {
         $numero = isset($_POST['whatsapp']) ? preg_replace('/\D+/', '', wp_unslash($_POST['whatsapp'])) : '';
         if ('' !== $numero && (strlen($numero) < 8 || strlen($numero) > 15)) {
@@ -1065,23 +1124,26 @@ function mercadito_guardar_personalizacion($seccion) {
             update_option('mercadito_' . $red, $url, false);
         }
         wc_add_notice('¡Listo! Se guardaron WhatsApp, el correo y las redes sociales.');
-    } elseif ('paginas' === $seccion && current_user_can('edit_pages')) {
-        $guardadas = 0;
-        $textos = isset($_POST['pagina']) && is_array($_POST['pagina']) ? wp_unslash($_POST['pagina']) : array();
-        foreach (mercadito_paginas() as $clave => $titulo) {
-            $pagina = mercadito_pagina($clave);
-            if (!$pagina || !isset($textos[$clave]) || !current_user_can('edit_post', $pagina->ID)) {
-                continue;
-            }
-            $actual = mercadito_pagina_a_texto($pagina);
-            $texto = sanitize_textarea_field(str_replace(array("\r\n", "\r"), "\n", (string) $textos[$clave]));
-            if (null !== $actual && '' !== trim($texto) && $texto !== $actual) {
-                wp_update_post(wp_slash(array('ID' => $pagina->ID, 'post_content' => mercadito_texto_a_bloques($texto))));
-                $guardadas++;
-            }
-        }
-        wc_add_notice($guardadas ? '¡Listo! ' . mercadito_plural($guardadas, 'página actualizada.', 'páginas actualizadas.') : 'No había cambios en las páginas.');
     }
+}
+
+// Textos de las páginas: solo se guardan las que cambiaron
+function mercadito_guardar_paginas() {
+    $guardadas = 0;
+    $textos = isset($_POST['pagina']) && is_array($_POST['pagina']) ? wp_unslash($_POST['pagina']) : array();
+    foreach (mercadito_paginas() as $clave => $titulo) {
+        $pagina = mercadito_pagina($clave);
+        if (!$pagina || !isset($textos[$clave]) || !current_user_can('edit_post', $pagina->ID)) {
+            continue;
+        }
+        $actual = mercadito_pagina_a_texto($pagina);
+        $texto = sanitize_textarea_field(str_replace(array("\r\n", "\r"), "\n", (string) $textos[$clave]));
+        if (null !== $actual && '' !== trim($texto) && $texto !== $actual) {
+            wp_update_post(wp_slash(array('ID' => $pagina->ID, 'post_content' => mercadito_texto_a_bloques($texto))));
+            $guardadas++;
+        }
+    }
+    return $guardadas;
 }
 
 // Se procesan los formularios de «Mi tienda» en el sitio

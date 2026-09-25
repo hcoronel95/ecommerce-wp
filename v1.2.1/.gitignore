@@ -1,0 +1,14 @@
+# Archivos con datos sensibles o pesados que no van al repositorio
+# (la base de datos va anonimizada en app/sql/local_publico.sql)
+*.zip
+/logs/
+/app/.envrc
+/app/sql/local.sql
+/app/public/wp-config.php
+/app/public/wp-content/uploads/wc-logs/
+/app/public/wp-content/debug.log
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
+.DS_Store

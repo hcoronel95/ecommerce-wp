@@ -328,34 +328,36 @@ $cifras = array(
         }
         $botones_iguales = mercadito_estilo_color(array('elements', 'button', 'color', 'background')) === $paleta[0];
         $campo_oculto = '<input type="hidden" name="mercadito_accion" value="personalizar">';
+        $pasos = array(1 => 'Nombre y logo', 2 => 'Colores', 3 => 'Fondo', 4 => 'Textos', 5 => 'WhatsApp y redes');
         ?>
         <section id="mt-personalizar" class="mt-f-panel" role="tabpanel" aria-labelledby="tab-personalizar" data-mt-panel<?php echo 'personalizar' === $activa ? '' : ' hidden'; ?>>
             <div class="mt-f-cab">
                 <div>
                     <h3>Personalizar</h3>
-                    <p>Cambia el nombre, los colores, los textos, tus datos de contacto y las páginas. Cada tarjeta se guarda por separado.</p>
+                    <p>Cinco pasos para dejar la tienda a tu gusto. Cada tarjeta se guarda con su propio botón.</p>
                 </div>
                 <a class="mt-f-enlace" href="<?php echo esc_url(home_url('/')); ?>" target="_blank" rel="noopener">Ver cómo queda<?php echo mercadito_icono('externo'); ?></a>
             </div>
+            <nav class="mt-f-indice" aria-label="Pasos de Personalizar">
+                <?php foreach ($pasos as $n => $nombre_paso) : ?>
+                    <a href="#mt-paso-<?php echo (int) $n; ?>"><span><?php echo (int) $n; ?></span><?php echo esc_html($nombre_paso); ?></a>
+                <?php endforeach; ?>
+            </nav>
             <div class="mt-f-ajustes">
-                <form class="mt-f-tarjeta" method="post" enctype="multipart/form-data">
+                <form id="mt-paso-1" class="mt-f-tarjeta" method="post" enctype="multipart/form-data">
                     <?php echo $nonce . $campo_oculto; ?>
                     <input type="hidden" name="seccion" value="tienda">
-                    <div class="mt-f-tarjeta-cab"><span class="mc-icono"><?php echo mercadito_icono('tienda'); ?></span><div><h4>Tu tienda</h4><p>El nombre y el logo salen arriba en todas las páginas y en el pie.</p></div></div>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-nombre">Nombre de la tienda</label>
-                        <input id="mt-p-nombre" type="text" name="nombre" value="<?php echo esc_attr(get_option('blogname')); ?>" maxlength="60" required>
-                    </p>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-frase">Frase corta</label>
-                        <input id="mt-p-frase" type="text" name="frase" value="<?php echo esc_attr(get_option('blogdescription')); ?>" maxlength="120" placeholder="Ej.: Productos de nuestra tierra, a un clic">
-                    </p>
-                    <?php if (null !== $pie_texto) : ?>
+                    <div class="mt-f-tarjeta-cab"><span class="mt-f-paso">1</span><div><h4>Nombre y logo</h4><p>Salen arriba en todas las páginas y en el pie.</p></div></div>
+                    <div class="mt-f-grupo dos">
                         <p class="mt-f-campo">
-                            <label for="mt-p-pie">Última línea del pie de página</label>
-                            <input id="mt-p-pie" type="text" name="pie_texto" value="<?php echo esc_attr($pie_texto); ?>" maxlength="160">
+                            <label for="mt-p-nombre">Nombre de la tienda</label>
+                            <input id="mt-p-nombre" type="text" name="nombre" value="<?php echo esc_attr(get_option('blogname')); ?>" maxlength="60" required>
                         </p>
-                    <?php endif; ?>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-frase">Frase corta</label>
+                            <input id="mt-p-frase" type="text" name="frase" value="<?php echo esc_attr(get_option('blogdescription')); ?>" maxlength="120" placeholder="Ej.: Productos de nuestra tierra, a un clic">
+                        </p>
+                    </div>
                     <div class="mt-f-campo">
                         <span class="mt-f-etiqueta">Logo (opcional)</span>
                         <div class="mt-f-logo">
@@ -370,13 +372,13 @@ $cifras = array(
                         </div>
                         <small class="mt-f-nota">Mejor cuadrado y en PNG. Se ve a la izquierda del nombre.</small>
                     </div>
-                    <div class="mt-f-enviar"><button type="submit" class="mt-f-btn">Guardar</button></div>
+                    <div class="mt-f-enviar"><button type="submit" class="mt-f-btn">Guardar nombre y logo</button></div>
                 </form>
 
-                <form class="mt-f-tarjeta" method="post">
+                <form id="mt-paso-2" class="mt-f-tarjeta" method="post">
                     <?php echo $nonce . $campo_oculto; ?>
                     <input type="hidden" name="seccion" value="colores">
-                    <div class="mt-f-tarjeta-cab"><span class="mc-icono"><?php echo mercadito_icono('paleta'); ?></span><div><h4>Colores</h4><p>El color del panel, el fondo de la tienda y, si quieres, sus botones. Toca uno para verlo al instante.</p></div></div>
+                    <div class="mt-f-tarjeta-cab"><span class="mt-f-paso">2</span><div><h4>Colores</h4><p>El color de tu panel y, si quieres, el de los botones de la tienda. Toca uno para verlo al instante.</p></div></div>
                     <div class="mt-f-colores" role="radiogroup" aria-label="Color del panel">
                         <?php foreach (mercadito_colores() as $clave => $c) : ?>
                             <label class="mt-f-color" style="--muestra:<?php echo esc_attr($c[1]); ?>">
@@ -391,9 +393,17 @@ $cifras = array(
                         </label>
                     </div>
                     <div class="mt-f-muestra-hero" aria-hidden="true"><div><small><?php echo esc_html(get_bloginfo('name')); ?></small><strong><?php echo esc_html(mercadito_opcion('panel_titulo')); ?></strong></div><span>Botón</span></div>
-                    <small class="mt-f-nota">Con el lápiz eliges cualquier color. Si es muy claro, se oscurece un poco para que las letras blancas se lean bien.</small>
-                    <label class="mt-f-check"><input type="checkbox" name="botones_tienda" value="1"<?php checked($botones_iguales); ?>>Usar este color también en los botones y enlaces de toda la tienda</label>
-                    <span class="mt-f-etiqueta">Fondo de la tienda</span>
+                    <div class="mt-f-grupo">
+                        <label class="mt-f-check"><input type="checkbox" name="botones_tienda" value="1"<?php checked($botones_iguales); ?>>Usar este color también en los botones y enlaces de toda la tienda</label>
+                        <small class="mt-f-nota">Con el lápiz eliges cualquier color. Si es muy claro, se oscurece un poco para que las letras blancas se lean bien.</small>
+                    </div>
+                    <div class="mt-f-enviar"><button type="submit" class="mt-f-btn">Guardar color</button></div>
+                </form>
+
+                <form id="mt-paso-3" class="mt-f-tarjeta" method="post">
+                    <?php echo $nonce . $campo_oculto; ?>
+                    <input type="hidden" name="seccion" value="fondo">
+                    <div class="mt-f-tarjeta-cab"><span class="mt-f-paso">3</span><div><h4>Fondo</h4><p>El color que va detrás de todas las páginas de la tienda.</p></div></div>
                     <div class="mt-f-colores mt-f-fondos" role="radiogroup" aria-label="Fondo de la tienda">
                         <?php foreach (mercadito_fondos() as $clave => $f) : ?>
                             <label class="mt-f-color" style="--muestra:<?php echo esc_attr($f[1]); ?>">
@@ -408,102 +418,123 @@ $cifras = array(
                         </label>
                     </div>
                     <small class="mt-f-nota">Es el mismo ajuste de Editar el sitio › Estilos › Colores › Fondo. Si eliges un fondo oscuro, se aclara para que el texto se lea.</small>
-                    <div class="mt-f-enviar"><button type="submit" class="mt-f-btn">Guardar color</button></div>
+                    <div class="mt-f-enviar"><button type="submit" class="mt-f-btn">Guardar fondo</button></div>
                 </form>
 
-                <form class="mt-f-tarjeta" method="post">
+                <form id="mt-paso-4" class="mt-f-tarjeta" method="post">
                     <?php echo $nonce . $campo_oculto; ?>
-                    <input type="hidden" name="seccion" value="panel">
-                    <div class="mt-f-tarjeta-cab"><span class="mc-icono"><?php echo mercadito_icono('texto'); ?></span><div><h4>Textos del panel y de Mi cuenta</h4><p>Lo que leen tú y tus clientes al entrar. Si borras uno, vuelve el original.</p></div></div>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-titulo">Título de Mi tienda</label>
-                        <input id="mt-p-titulo" type="text" name="panel_titulo" value="<?php echo esc_attr(mercadito_opcion('panel_titulo')); ?>" maxlength="60">
-                    </p>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-texto">Texto bajo el título</label>
-                        <input id="mt-p-texto" type="text" name="panel_texto" value="<?php echo esc_attr(mercadito_opcion('panel_texto')); ?>" maxlength="140">
-                    </p>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-bienvenida">Bienvenida para tus clientes</label>
-                        <textarea id="mt-p-bienvenida" name="bienvenida" rows="2" maxlength="200"><?php echo esc_textarea(mercadito_opcion('bienvenida')); ?></textarea>
-                    </p>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-acceso-titulo">Título de la pantalla para entrar</label>
-                        <input id="mt-p-acceso-titulo" type="text" name="acceso_titulo" value="<?php echo esc_attr(mercadito_opcion('acceso_titulo')); ?>" maxlength="60">
-                    </p>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-acceso-texto">Texto de la pantalla para entrar</label>
-                        <textarea id="mt-p-acceso-texto" name="acceso_texto" rows="2" maxlength="220"><?php echo esc_textarea(mercadito_opcion('acceso_texto')); ?></textarea>
-                    </p>
+                    <input type="hidden" name="seccion" value="textos">
+                    <div class="mt-f-tarjeta-cab"><span class="mt-f-paso">4</span><div><h4>Textos</h4><p>Lo que leen tú y tus clientes. Si borras un texto, vuelve el original.</p></div></div>
+                    <div class="mt-f-grupo dos">
+                        <h5 class="mt-f-grupo-titulo">Tu panel «Mi tienda»</h5>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-titulo">Título</label>
+                            <input id="mt-p-titulo" type="text" name="panel_titulo" value="<?php echo esc_attr(mercadito_opcion('panel_titulo')); ?>" maxlength="60">
+                        </p>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-texto">Texto bajo el título</label>
+                            <input id="mt-p-texto" type="text" name="panel_texto" value="<?php echo esc_attr(mercadito_opcion('panel_texto')); ?>" maxlength="140">
+                        </p>
+                    </div>
+                    <div class="mt-f-grupo">
+                        <h5 class="mt-f-grupo-titulo">Mi cuenta de tus clientes</h5>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-acceso-titulo">Título de la pantalla para entrar</label>
+                            <input id="mt-p-acceso-titulo" type="text" name="acceso_titulo" value="<?php echo esc_attr(mercadito_opcion('acceso_titulo')); ?>" maxlength="60">
+                        </p>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-acceso-texto">Texto de la pantalla para entrar</label>
+                            <textarea id="mt-p-acceso-texto" name="acceso_texto" rows="2" maxlength="220"><?php echo esc_textarea(mercadito_opcion('acceso_texto')); ?></textarea>
+                        </p>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-bienvenida">Bienvenida dentro de Mi cuenta</label>
+                            <textarea id="mt-p-bienvenida" name="bienvenida" rows="2" maxlength="200"><?php echo esc_textarea(mercadito_opcion('bienvenida')); ?></textarea>
+                        </p>
+                    </div>
+                    <?php if (null !== $pie_texto) : ?>
+                        <div class="mt-f-grupo">
+                            <h5 class="mt-f-grupo-titulo">Pie de página</h5>
+                            <p class="mt-f-campo">
+                                <label for="mt-p-pie">Última línea del pie</label>
+                                <input id="mt-p-pie" type="text" name="pie_texto" value="<?php echo esc_attr($pie_texto); ?>" maxlength="160">
+                            </p>
+                        </div>
+                    <?php endif; ?>
+                    <div class="mt-f-grupo">
+                        <h5 class="mt-f-grupo-titulo">Páginas de la tienda</h5>
+                        <small class="mt-f-nota">Toca una para editarla. Deja una línea en blanco entre párrafos y escribe <b>#</b> y un espacio al inicio de un subtítulo.</small>
+                        <div class="mt-f-paginas">
+                            <?php foreach (mercadito_paginas() as $clave => $titulo) :
+                                $pagina = mercadito_pagina($clave);
+                                $texto = $pagina ? mercadito_pagina_a_texto($pagina) : null;
+                                $publicada = $pagina && 'publish' === $pagina->post_status;
+                                ?>
+                                <details class="mt-f-pagina">
+                                    <summary><strong><?php echo esc_html($pagina ? get_the_title($pagina) : $titulo); ?></strong><span class="mc-chip<?php echo $publicada ? ' verde' : ''; ?>"><?php echo $pagina ? ($publicada ? 'Publicada' : 'Borrador') : 'No existe'; ?></span></summary>
+                                    <?php if (!$pagina) : ?>
+                                        <p class="mt-f-nota">Esta página todavía no existe. Se crea en WordPress › Páginas › Añadir.</p>
+                                    <?php else : ?>
+                                        <?php if (null !== $texto) : ?>
+                                            <textarea name="pagina[<?php echo esc_attr($clave); ?>]" rows="12" aria-label="Texto de <?php echo esc_attr($titulo); ?>"><?php echo esc_textarea($texto); ?></textarea>
+                                        <?php elseif ('contacto' === $clave) : ?>
+                                            <p class="mt-f-nota">Se llena sola con tus datos del paso 5, «WhatsApp y redes».</p>
+                                        <?php else : ?>
+                                            <p class="mt-f-nota">Tiene botones, enlaces u otros bloques: se edita en WordPress para no romper su diseño.</p>
+                                        <?php endif; ?>
+                                        <div class="mt-f-pagina-acciones">
+                                            <a class="mt-f-ver" href="<?php echo esc_url(get_permalink($pagina)); ?>" target="_blank" rel="noopener">Ver página<?php echo mercadito_icono('externo'); ?></a>
+                                            <a class="mt-f-ver" href="<?php echo esc_url(get_edit_post_link($pagina->ID)); ?>">Editar en WordPress</a>
+                                        </div>
+                                    <?php endif; ?>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                     <div class="mt-f-enviar"><button type="submit" class="mt-f-btn">Guardar textos</button></div>
                 </form>
 
-                <form class="mt-f-tarjeta" method="post">
+                <form id="mt-paso-5" class="mt-f-tarjeta" method="post">
                     <?php echo $nonce . $campo_oculto; ?>
                     <input type="hidden" name="seccion" value="contacto">
-                    <div class="mt-f-tarjeta-cab"><span class="mc-icono"><?php echo mercadito_icono('chat'); ?></span><div><h4>WhatsApp y redes sociales</h4><p>Tus clientes te escriben con un toque. Lo que dejes vacío no se muestra.</p></div></div>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-wa">Número de WhatsApp</label>
-                        <input id="mt-p-wa" type="tel" name="whatsapp" inputmode="numeric" value="<?php echo esc_attr(mercadito_opcion('whatsapp')); ?>" placeholder="593991234567">
-                        <small class="mt-f-nota">Con el código de Ecuador (593) y sin el 0 inicial: 0991234567 se escribe 593991234567.</small>
-                    </p>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-wa-texto">Mensaje que ya aparece escrito</label>
-                        <input id="mt-p-wa-texto" type="text" name="whatsapp_texto" value="<?php echo esc_attr(mercadito_opcion('whatsapp_texto')); ?>" maxlength="140">
-                    </p>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-correo">Correo de contacto</label>
-                        <input id="mt-p-correo" type="email" name="correo" value="<?php echo esc_attr(mercadito_opcion('correo')); ?>" placeholder="tutienda@correo.com">
-                    </p>
-                    <p class="mt-f-campo">
-                        <label for="mt-p-horario">Horario de atención</label>
-                        <input id="mt-p-horario" type="text" name="horario" value="<?php echo esc_attr(mercadito_opcion('horario')); ?>" maxlength="100" placeholder="Lunes a sábado, de 08:00 a 18:00">
-                    </p>
-                    <?php foreach (array('facebook' => 'Facebook', 'instagram' => 'Instagram', 'tiktok' => 'TikTok') as $red => $nombre_red) : ?>
+                    <div class="mt-f-tarjeta-cab"><span class="mt-f-paso">5</span><div><h4>WhatsApp y redes</h4><p>Tus clientes te escriben con un toque. Lo que dejes vacío no se muestra.</p></div></div>
+                    <div class="mt-f-grupo dos">
+                        <h5 class="mt-f-grupo-titulo">WhatsApp</h5>
                         <p class="mt-f-campo">
-                            <label for="mt-p-<?php echo esc_attr($red); ?>">Enlace de <?php echo esc_html($nombre_red); ?></label>
-                            <input id="mt-p-<?php echo esc_attr($red); ?>" type="url" name="<?php echo esc_attr($red); ?>" value="<?php echo esc_attr(mercadito_opcion($red)); ?>" placeholder="https://www.<?php echo esc_attr($red); ?>.com/tutienda">
+                            <label for="mt-p-wa">Número de WhatsApp</label>
+                            <input id="mt-p-wa" type="tel" name="whatsapp" inputmode="numeric" value="<?php echo esc_attr(mercadito_opcion('whatsapp')); ?>" placeholder="593991234567">
+                            <small class="mt-f-nota">Con el código de Ecuador (593) y sin el 0 inicial: 0991234567 se escribe 593991234567.</small>
                         </p>
-                    <?php endforeach; ?>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-wa-texto">Mensaje que ya aparece escrito</label>
+                            <input id="mt-p-wa-texto" type="text" name="whatsapp_texto" value="<?php echo esc_attr(mercadito_opcion('whatsapp_texto')); ?>" maxlength="140">
+                        </p>
+                    </div>
+                    <div class="mt-f-grupo dos">
+                        <h5 class="mt-f-grupo-titulo">Correo y horario</h5>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-correo">Correo de contacto</label>
+                            <input id="mt-p-correo" type="email" name="correo" value="<?php echo esc_attr(mercadito_opcion('correo')); ?>" placeholder="tutienda@correo.com">
+                        </p>
+                        <p class="mt-f-campo">
+                            <label for="mt-p-horario">Horario de atención</label>
+                            <input id="mt-p-horario" type="text" name="horario" value="<?php echo esc_attr(mercadito_opcion('horario')); ?>" maxlength="100" placeholder="Lunes a sábado, de 08:00 a 18:00">
+                        </p>
+                    </div>
+                    <div class="mt-f-grupo tres">
+                        <h5 class="mt-f-grupo-titulo">Redes sociales</h5>
+                        <?php foreach (array('facebook' => 'Facebook', 'instagram' => 'Instagram', 'tiktok' => 'TikTok') as $red => $nombre_red) : ?>
+                            <p class="mt-f-campo">
+                                <label for="mt-p-<?php echo esc_attr($red); ?>">Enlace de <?php echo esc_html($nombre_red); ?></label>
+                                <input id="mt-p-<?php echo esc_attr($red); ?>" type="url" name="<?php echo esc_attr($red); ?>" value="<?php echo esc_attr(mercadito_opcion($red)); ?>" placeholder="https://www.<?php echo esc_attr($red); ?>.com/tutienda">
+                            </p>
+                        <?php endforeach; ?>
+                    </div>
                     <div class="mt-f-enviar">
                         <button type="submit" class="mt-f-btn">Guardar contacto</button>
                         <?php if (mercadito_enlace_red('whatsapp')) : ?>
                             <a class="mt-f-ver" href="<?php echo esc_url(mercadito_enlace_red('whatsapp')); ?>" target="_blank" rel="noopener">Probar WhatsApp<?php echo mercadito_icono('externo'); ?></a>
                         <?php endif; ?>
                     </div>
-                </form>
-
-                <form class="mt-f-tarjeta ancha" method="post">
-                    <?php echo $nonce . $campo_oculto; ?>
-                    <input type="hidden" name="seccion" value="paginas">
-                    <div class="mt-f-tarjeta-cab"><span class="mc-icono"><?php echo mercadito_icono('libro'); ?></span><div><h4>Páginas de la tienda</h4><p>Toca una para editarla. Deja una línea en blanco entre párrafos y escribe <b>#</b> y un espacio al inicio de un subtítulo.</p></div></div>
-                    <div class="mt-f-paginas">
-                        <?php foreach (mercadito_paginas() as $clave => $titulo) :
-                            $pagina = mercadito_pagina($clave);
-                            $texto = $pagina ? mercadito_pagina_a_texto($pagina) : null;
-                            $publicada = $pagina && 'publish' === $pagina->post_status;
-                            ?>
-                            <details class="mt-f-pagina">
-                                <summary><strong><?php echo esc_html($pagina ? get_the_title($pagina) : $titulo); ?></strong><span class="mc-chip<?php echo $publicada ? ' verde' : ''; ?>"><?php echo $pagina ? ($publicada ? 'Publicada' : 'Borrador') : 'No existe'; ?></span></summary>
-                                <?php if (!$pagina) : ?>
-                                    <p class="mt-f-nota">Esta página todavía no existe. Se crea en WordPress › Páginas › Añadir.</p>
-                                <?php else : ?>
-                                    <?php if (null !== $texto) : ?>
-                                        <textarea name="pagina[<?php echo esc_attr($clave); ?>]" rows="12" aria-label="Texto de <?php echo esc_attr($titulo); ?>"><?php echo esc_textarea($texto); ?></textarea>
-                                    <?php elseif ('contacto' === $clave) : ?>
-                                        <p class="mt-f-nota">Se llena sola con tus datos de «WhatsApp y redes sociales».</p>
-                                    <?php else : ?>
-                                        <p class="mt-f-nota">Tiene botones, enlaces u otros bloques: se edita en WordPress para no romper su diseño.</p>
-                                    <?php endif; ?>
-                                    <div class="mt-f-pagina-acciones">
-                                        <a class="mt-f-ver" href="<?php echo esc_url(get_permalink($pagina)); ?>" target="_blank" rel="noopener">Ver página<?php echo mercadito_icono('externo'); ?></a>
-                                        <a class="mt-f-ver" href="<?php echo esc_url(get_edit_post_link($pagina->ID)); ?>">Editar en WordPress</a>
-                                    </div>
-                                <?php endif; ?>
-                            </details>
-                        <?php endforeach; ?>
-                    </div>
-                    <div class="mt-f-enviar"><button type="submit" class="mt-f-btn">Guardar páginas</button></div>
                 </form>
             </div>
         </section>

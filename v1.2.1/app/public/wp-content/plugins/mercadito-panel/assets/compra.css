@@ -1,0 +1,35 @@
+/* Mercadito Panel Rápido · Finalizar compra y Pedido recibido */
+
+/* Finalizar compra: el país ya es Ecuador (única opción), así que no se muestra */
+.wc-block-checkout .wc-block-components-address-form__country:has(select option[value="EC"]:checked){display:none}
+
+/* Pedido recibido: menos espacio arriba para que el QR se vea sin bajar */
+body.woocommerce-order-received main h1{font-size:clamp(28px,3.4vw,40px)!important;line-height:1.15}
+body.woocommerce-order-received main .wc-block-order-confirmation-status{font-size:clamp(20px,2.2vw,24px)!important;line-height:1.3}
+body.woocommerce-order-received main h2.wp-block-heading{font-size:20px!important;margin-bottom:10px}
+
+/* Tarjeta del QR: imagen a la izquierda; número, total y botón de WhatsApp a la derecha */
+body .mc-pago{max-width:780px;margin-block:14px 28px}
+.mc-pago > .wp-block-group{display:grid;grid-template-columns:200px minmax(0,1fr);gap:10px 28px;align-items:center;margin:0!important;padding:20px 26px!important;border-radius:18px;text-align:left}
+.mc-pago > .wp-block-group > *{grid-column:2;max-width:none!important;margin:0!important;text-align:left!important}
+.mc-pago > .wp-block-group > .wp-block-image{grid-column:1;grid-row:1 / span 6;align-self:center;justify-self:center}
+.mc-pago .wp-block-image img{width:200px!important;max-width:100%;height:auto!important}
+.mc-pago h3{font-size:20px!important;line-height:1.3}
+.mc-pago p{font-size:15px!important;line-height:1.5}
+.mc-pago .mc-pago-datos{display:flex;flex-wrap:wrap;gap:4px 22px}
+.mc-pago .mc-pago-datos b{font-size:18px;font-weight:800}
+.mc-pago-wa{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:10px;justify-self:start;min-height:48px;padding:12px 22px;border-radius:12px;background:#25D366;color:#0B3D22!important;font-size:16px;font-weight:700;line-height:1.2;text-decoration:none!important;box-shadow:0 8px 20px rgba(18,140,70,.25);transition:transform .15s,box-shadow .15s}
+.mc-pago-wa:hover,.mc-pago-wa:focus-visible{transform:translateY(-1px);box-shadow:0 12px 26px rgba(18,140,70,.32)}
+.mc-pago-wa:focus-visible{outline:3px solid #0B3D22;outline-offset:3px}
+.mc-pago-wa .mc-svg{width:22px;height:22px;flex:none}
+.mc-pago-nota{display:block;color:#6B5B4B;font-size:13px;line-height:1.45}
+
+@media (max-width:640px){
+.mc-pago > .wp-block-group{grid-template-columns:minmax(0,1fr);gap:10px;padding:16px!important;text-align:center}
+.mc-pago > .wp-block-group > *{grid-column:1;text-align:center!important}
+.mc-pago > .wp-block-group > .wp-block-image{grid-row:auto}
+.mc-pago p{font-size:14px!important}
+.mc-pago .wp-block-image img{width:170px!important}
+.mc-pago .mc-pago-datos{justify-content:center}
+.mc-pago-wa{justify-self:stretch}
+}
